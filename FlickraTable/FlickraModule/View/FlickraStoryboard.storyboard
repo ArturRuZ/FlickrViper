@@ -10,26 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="WKE-Rc-Li2">
-            <objects>
-                <navigationController storyboardIdentifier="kFlickraNavigationControllerIdentifier" id="806-Wu-Wyu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S3x-X4-ohh">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Rrw-eN-sjb" kind="relationship" relationship="rootViewController" id="Ieq-Ra-Eml"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="43Z-M6-m0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-660" y="169"/>
-        </scene>
         <!--Flickra View Controller-->
         <scene sceneID="xRP-Yd-Fh5">
             <objects>
-                <viewController id="Rrw-eN-sjb" customClass="FlickraViewController" customModule="FlickraTable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kFlickraNavigationControllerIdentifier" id="Rrw-eN-sjb" customClass="FlickraViewController" customModule="FlickraTable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="50R-cx-Bhy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

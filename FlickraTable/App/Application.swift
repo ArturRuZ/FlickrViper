@@ -14,7 +14,7 @@ class Application {
     private let modulesCoordinator: ModulesCoordinator
     
     init() {
-        modulesCoordinator = ModulesCoordinator(internetService: InternetService())
+        modulesCoordinator = ModulesCoordinator(internetService: InternetService(), rootNavigationVC: UINavigationController())
     }
 }
 

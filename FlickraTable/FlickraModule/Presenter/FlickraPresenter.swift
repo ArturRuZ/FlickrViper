@@ -14,6 +14,7 @@ class FlickraPresenter {
     private var presenterOutputToCoordinator : FlickraPresenterOutput!
     private var view : FlickraViewtViewInput!
     private var interactor: FlickraInteractorInput!
+   
     
     
 }

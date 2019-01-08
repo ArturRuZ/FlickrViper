@@ -11,20 +11,22 @@ import UIKit
 
 class ModulesCoordinator {
     
-    private var flickraView : UINavigationController?
-    private var flickraPresenter : FlickraPresenterInput?
+    private var rootNavigationVC : UINavigationController
     private let internetService: InternetServiceInput
+    private var flickraPresenter : FlickraPresenterInput?
+    private var presenterArray : [Any] = []
+    
     
     func rootModuleController() -> UIViewController {
-        let flickraAssembly = FlickraAssembly()
-        guard let flickra = flickraAssembly.build(internetService: internetService) else { return UIViewController() }
-        flickra.presenter.output = self
-        self.flickraView = flickra.controller
-        self.flickraPresenter = flickra.presenter
-        return flickra.controller
+        presentFlickraViewt()
+        return rootNavigationVC
+        
     }
-    init(internetService: InternetServiceInput) {
+   
+    
+    init(internetService: InternetServiceInput, rootNavigationVC :UINavigationController) {
         self.internetService = internetService
+        self.rootNavigationVC = rootNavigationVC
     }
 }
 
@@ -33,12 +35,19 @@ extension ModulesCoordinator : FlickraPresenterOutput {
     
 }
 
+
+
 extension ModulesCoordinator : RoutingFlickraViewtView {
-    func presentFlickraViewtViewIView() {
+    func presentFlickraViewt() {
+        let flickraAssembly = FlickraAssembly()
+        guard let flickra = flickraAssembly.build(internetService: internetService) else { return}
+        flickra.presenter.output = self
+        presenterArray.append(flickra.presenter)
+        rootNavigationVC.pushViewController(flickra.controller, animated: true)
         
     }
     
-    func dismissFlickraViewtViewIView() {
+    func dismissFlickraView() {
         
     }
 }
