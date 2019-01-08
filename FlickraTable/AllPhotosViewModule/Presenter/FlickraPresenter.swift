@@ -11,8 +11,8 @@ import Foundation
 
 class FlickraPresenter {
     
-    private var presenterOutputToCoordinator : FlickraPresenterOutput!
-    private var view : FlickraViewtViewInput!
+    private weak var presenterOutputToCoordinator : FlickraPresenterOutput!
+    private weak var view : FlickraViewtViewInput!
     private var interactor: FlickraInteractorInput!
    
     

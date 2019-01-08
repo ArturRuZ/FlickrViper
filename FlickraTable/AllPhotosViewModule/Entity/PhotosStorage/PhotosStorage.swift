@@ -9,7 +9,7 @@
 import Foundation
 
 class  PhotosStorage {
-    private var interactor: PhotosStorageOutput!
+   private weak var interactor: PhotosStorageOutput!
    // var storage : [Int: [String : String]] = [:]
     var storage = [PhotosModel]()
 }

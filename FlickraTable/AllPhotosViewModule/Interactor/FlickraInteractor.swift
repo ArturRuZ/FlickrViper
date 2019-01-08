@@ -9,13 +9,13 @@
 import Foundation
 
 class FlickraInteractor {
-    private var interactorOutput : FlickraInteractorOutput!
+    private weak var interactorOutput : FlickraInteractorOutput!
     private var storageInput : PhotosStorageInput!
-    var internetService: InternetServiceInput!
+    weak var internetService: InternetServiceInput!
 }
 
 extension FlickraInteractor : FlickraInteractorInput {
-    var inputStorage: PhotosStorageInput {
+   var inputStorage: PhotosStorageInput {
         get {
             return storageInput
         }

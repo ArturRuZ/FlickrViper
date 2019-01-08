@@ -13,7 +13,6 @@ class ModulesCoordinator {
     
     private var rootNavigationVC : UINavigationController
     private let internetService: InternetServiceInput
-    private var flickraPresenter : FlickraPresenterInput?
     private var presenterArray : [Any] = []
     
     
@@ -44,10 +43,9 @@ extension ModulesCoordinator : RoutingFlickraViewtView {
         flickra.presenter.output = self
         presenterArray.append(flickra.presenter)
         rootNavigationVC.pushViewController(flickra.controller, animated: true)
-        
     }
     
     func dismissFlickraView() {
-        
+         rootNavigationVC.dismiss(animated: true, completion: nil)
     }
 }

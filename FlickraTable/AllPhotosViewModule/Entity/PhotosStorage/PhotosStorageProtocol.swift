@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol PhotosStorageInput {
+protocol PhotosStorageInput: class {
     var storageOutput : PhotosStorageOutput {get set}
     func saveData(data: PhotosResponse)
     
 }
 
-protocol PhotosStorageOutput {
+protocol PhotosStorageOutput: class {
     func presentData(storage : [PhotosModel])
 }
