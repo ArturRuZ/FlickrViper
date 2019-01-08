@@ -27,6 +27,8 @@
 		3457243421D792A1004A806A /* PhotosStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243321D792A1004A806A /* PhotosStorage.swift */; };
 		3457243621D7942B004A806A /* PhotosStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243521D7942B004A806A /* PhotosStorageProtocol.swift */; };
 		3457243921D8CB20004A806A /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243821D8CB20004A806A /* PhotosModel.swift */; };
+		349B531221E4DE4300EB7BD9 /* InternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531121E4DE4300EB7BD9 /* InternetService.swift */; };
+		349B531621E4DE7A00EB7BD9 /* InternetService Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */; };
 		659C11F18D8A37BC333C6030 /* Pods_FlickraTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBA956EB40621598DFBD4A3 /* Pods_FlickraTable.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		3457243321D792A1004A806A /* PhotosStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStorage.swift; sourceTree = "<group>"; };
 		3457243521D7942B004A806A /* PhotosStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStorageProtocol.swift; sourceTree = "<group>"; };
 		3457243821D8CB20004A806A /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
+		349B531121E4DE4300EB7BD9 /* InternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetService.swift; sourceTree = "<group>"; };
+		349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InternetService Protocol.swift"; sourceTree = "<group>"; };
 		D17E8404DD8416017549412D /* Pods-FlickraTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickraTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickraTable/Pods-FlickraTable.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBA956EB40621598DFBD4A3 /* Pods_FlickraTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickraTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,6 +95,7 @@
 		344538E321D539C100959319 /* FlickraTable */ = {
 			isa = PBXGroup;
 			children = (
+				349B530E21E4DD2500EB7BD9 /* Services */,
 				344538F021D539C100959319 /* Info.plist */,
 				3445390021D53B4300959319 /* Resources */,
 				344538F621D539CF00959319 /* App */,
@@ -202,6 +207,31 @@
 				3457243521D7942B004A806A /* PhotosStorageProtocol.swift */,
 			);
 			path = PhotosStorage;
+			sourceTree = "<group>";
+		};
+		349B530E21E4DD2500EB7BD9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				349B531021E4DE2700EB7BD9 /* Database Service */,
+				349B530F21E4DE1B00EB7BD9 /* Internet Service */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		349B530F21E4DE1B00EB7BD9 /* Internet Service */ = {
+			isa = PBXGroup;
+			children = (
+				349B531121E4DE4300EB7BD9 /* InternetService.swift */,
+				349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */,
+			);
+			path = "Internet Service";
+			sourceTree = "<group>";
+		};
+		349B531021E4DE2700EB7BD9 /* Database Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Database Service";
 			sourceTree = "<group>";
 		};
 		3BC45C1F0151EEDAE798A0BF /* Frameworks */ = {
@@ -343,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				344538FB21D53A9500959319 /* ModulesCoordinator.swift in Sources */,
+				349B531221E4DE4300EB7BD9 /* InternetService.swift in Sources */,
 				3445390721D53C8500959319 /* FlickraInteractorProtocol.swift in Sources */,
 				3457243421D792A1004A806A /* PhotosStorage.swift in Sources */,
 				3445390F21D53D4400959319 /* FlickraView.swift in Sources */,
@@ -354,6 +385,7 @@
 				3457243021D7851D004A806A /* PhotoCellViewProtocol.swift in Sources */,
 				3445390521D53C6700959319 /* FlickraInteractor.swift in Sources */,
 				3445390D21D53CF100959319 /* FlickraAssembly.swift in Sources */,
+				349B531621E4DE7A00EB7BD9 /* InternetService Protocol.swift in Sources */,
 				344538E521D539C100959319 /* AppDelegate.swift in Sources */,
 				3457243621D7942B004A806A /* PhotosStorageProtocol.swift in Sources */,
 				3445390B21D53CB400959319 /* FlickraPresenterProtocol.swift in Sources */,

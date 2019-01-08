@@ -13,14 +13,18 @@ class ModulesCoordinator {
     
     private var flickraView : UINavigationController?
     private var flickraPresenter : FlickraPresenterInput?
+    private let internetService: InternetServiceInput
     
     func rootModuleController() -> UIViewController {
         let flickraAssembly = FlickraAssembly()
-        guard let flickra = flickraAssembly.build() else { return UIViewController() }
+        guard let flickra = flickraAssembly.build(internetService: internetService) else { return UIViewController() }
         flickra.presenter.output = self
         self.flickraView = flickra.controller
         self.flickraPresenter = flickra.presenter
         return flickra.controller
+    }
+    init(internetService: InternetServiceInput) {
+        self.internetService = internetService
     }
 }
 

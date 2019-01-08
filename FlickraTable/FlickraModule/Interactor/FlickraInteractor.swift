@@ -11,6 +11,7 @@ import Foundation
 class FlickraInteractor {
     private var interactorOutput : FlickraInteractorOutput!
     private var storageInput : PhotosStorageInput!
+    var internetService: InternetServiceInput!
 }
 
 extension FlickraInteractor : FlickraInteractorInput {
@@ -44,24 +45,14 @@ extension FlickraInteractor : PhotosStorageOutput {
 
 extension FlickraInteractor {
 private func downloadData() {
-    let url = URL(string: "https://www.flickr.com/services/rest?method=flickr.interestingness.getList&api_key=3988023e15f45c8d4ef5590261b1dc53&per_page=40&page=1&format=json&nojsoncallback=1&extras=url_l&date=2018-09-23")!
-    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-        guard let data = data else { return }
-        DispatchQueue.main.async {
-            self.parse(data: data)
-        }
+    let url = URL(string: "https://www.flickr.com/services/rest?method=flickr.interestingness.getList&api_key=3988023e15f45c8d4ef5590261b1dc53&per_page=40&page=1&format=json&nojsoncallback=1&extras=url_l&date=2018-09-23")
+    internetService.loadData(fromURL: url, parseInto: PhotosResponse.self, success: { (response: PhotosResponse) in
+        self.storageInput.saveData(data: response)
+    }) { (code) in
+        print("Error")
     }
-    task.resume()
+    
+    
+}
 }
 
-private func parse(data: Data) {
-    print("длина байтов -= \(data.count)")
-    
-    do {
-        let photoResponse = try JSONDecoder().decode(PhotosResponse.self, from: data)
-       storageInput.saveData(data: photoResponse)
-    } catch {
-        print("error = \(error.localizedDescription)")
-    }
-}
-}
