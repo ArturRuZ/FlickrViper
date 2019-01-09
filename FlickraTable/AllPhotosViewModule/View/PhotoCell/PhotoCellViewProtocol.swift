@@ -13,4 +13,5 @@ protocol ViewCellModel {
     var photoName : String { get }
     var photoUrl : String {get}
     var id : String {get}
+    var isFavorite: Bool {get}
 }

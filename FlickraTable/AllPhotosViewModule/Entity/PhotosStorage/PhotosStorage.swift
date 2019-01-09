@@ -27,7 +27,7 @@ extension PhotosStorage : PhotosStorageInput {
 extension PhotosStorage {
     func saveData(data: PhotosResponse) {
         for i in 0..<data.photos.photo.count {
-            let photoStruct = PhotosModel(title: data.photos.photo[i].title, url: data.photos.photo[i].url_l,id: data.photos.photo[i].id)
+            let photoStruct = PhotosModel(title: data.photos.photo[i].title, url: data.photos.photo[i].url_l,id: data.photos.photo[i].id, isFavorite: false)
            storage.append(photoStruct)
         }
         interactor.presentData(storage: storage)

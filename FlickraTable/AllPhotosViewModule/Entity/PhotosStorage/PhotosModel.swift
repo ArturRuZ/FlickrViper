@@ -13,6 +13,7 @@ struct PhotosModel {
     let title : String
     let url : String
     let id : String
+    var isFavorite : Bool
     
 }
 extension PhotosModel : ViewCellModel {

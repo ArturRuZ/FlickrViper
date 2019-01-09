@@ -21,6 +21,9 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6we-sa-f1O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="width" constant="320" id="Yx9-GQ-VCe"/>
                             <constraint firstAttribute="height" constant="320" id="lWf-33-1A1"/>
@@ -35,14 +38,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3U-0z-cQo">
+                                <rect key="frame" x="260" y="-5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LQA-Li-Umh"/>
+                                    <constraint firstAttribute="width" constant="40" id="PYs-R3-GfL"/>
+                                </constraints>
+                                <state key="normal" image="baseline_favorite_border_black_36pt"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="y3U-0z-cQo" secondAttribute="trailing" constant="20" id="4MR-z6-wii"/>
                             <constraint firstItem="vGG-WH-SQJ" firstAttribute="centerY" secondItem="UeW-5K-Nzr" secondAttribute="centerY" id="8h3-bE-bJG"/>
                             <constraint firstItem="vGG-WH-SQJ" firstAttribute="centerY" secondItem="UeW-5K-Nzr" secondAttribute="centerY" id="AiQ-BE-Gsz"/>
                             <constraint firstItem="vGG-WH-SQJ" firstAttribute="centerX" secondItem="UeW-5K-Nzr" secondAttribute="centerX" id="FUs-hf-IJ8"/>
                             <constraint firstItem="vGG-WH-SQJ" firstAttribute="centerX" secondItem="UeW-5K-Nzr" secondAttribute="centerX" id="U5f-ib-Kdh"/>
                             <constraint firstAttribute="height" constant="30" id="ceb-aC-VpP"/>
+                            <constraint firstAttribute="bottom" secondItem="y3U-0z-cQo" secondAttribute="bottom" constant="-5" id="m9k-Yz-xet"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -58,10 +71,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="p5F-e9-wXu"/>
             <connections>
+                <outlet property="favoritesIcon" destination="y3U-0z-cQo" id="2VB-Cu-gzz"/>
                 <outlet property="photo" destination="6we-sa-f1O" id="4IC-g5-hMk"/>
                 <outlet property="photoName" destination="vGG-WH-SQJ" id="ake-Bb-6U9"/>
             </connections>
             <point key="canvasLocation" x="89" y="133"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="baseline_favorite_border_black_36pt" width="72" height="72"/>
+    </resources>
 </document>

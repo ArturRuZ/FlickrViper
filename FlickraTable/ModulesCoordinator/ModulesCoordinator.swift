@@ -31,6 +31,11 @@ class ModulesCoordinator {
 
 
 extension ModulesCoordinator : FlickraPresenterOutput {
+    func photoSelected(photo: UIImage, isFavorite: Bool) {
+         presentgDetailPhotoViewt()
+        print(rootNavigationVC.viewControllers)
+    }
+    
     
 }
 

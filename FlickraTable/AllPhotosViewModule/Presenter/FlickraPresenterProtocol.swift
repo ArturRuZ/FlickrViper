@@ -7,18 +7,18 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol FlickraPresenterInput: class {
     var output: FlickraPresenterOutput { get set }
     var viewInput: FlickraViewtViewInput { get set }
     var interactorInput: FlickraInteractorInput { get set }
     func getData()
-    
+    func photoSelected(photo : UIImage, isFavorite: Bool)
 }
 
 protocol FlickraPresenterOutput: class {
-    
+    func photoSelected(photo: UIImage, isFavorite: Bool)
 }
 
 

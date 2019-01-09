@@ -46,11 +46,8 @@ extension FlickraViewController: UITableViewDataSource {
                                                        for: indexPath) as? PhotoCellView else {
                                                         return UITableViewCell()
         }
-        //print(storage![indexPath.row]!)
-        //let viewModel = storage![indexPath.row] as! ViewCellModel
-       //print(viewModel)
-           // = storage![indexPath.row]
-        
+      
+        cell.presenter = self.presenter
         cell.viewModel = storage?[indexPath.row]
       
         //cell.viewModel = photosResponse?.photos.photo[indexPath.row]

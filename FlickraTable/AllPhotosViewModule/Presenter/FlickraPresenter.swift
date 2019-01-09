@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class FlickraPresenter {
     
@@ -59,4 +59,9 @@ extension FlickraPresenter : FlickraInteractorOutput {
         view.presentData(storage: storage)
     }
     
+}
+extension FlickraPresenter{
+    func photoSelected(photo: UIImage, isFavorite: Bool) {
+        presenterOutputToCoordinator?.photoSelected(photo: photo, isFavorite: isFavorite)
+    }
 }
