@@ -12,7 +12,7 @@ import UIKit
 class DetailPhotoAssembly {
     
     func build() -> (controller: UIViewController, presenter: DetailPhotoPresenterInput)? {
-        let storyboard = UIStoryboard(name: "DetailPhotoStoryboard", bundle: nil)
+        let storyboard = UIStoryboard(name: "DetailPhotoViewStoryboard", bundle: nil)
         guard let detailPhotoVC  = storyboard.instantiateViewController(withIdentifier: "kDetailPhotoIdentifier") as? DetailPhotoView else {
             return nil}
         
