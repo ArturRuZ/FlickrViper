@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class DetailPhotoPresenter {
     
@@ -59,7 +59,9 @@ extension DetailPhotoPresenter : DetailPhotoInteractorOutput {
         
     }
     
- 
-    
-    
+}
+extension DetailPhotoPresenter{
+func prepareFototoShow(photo: UIImage, isFavorite: Bool) {
+    interactor?.prepareFototoShow(photo: photo, isFavorite: isFavorite)
+}
 }

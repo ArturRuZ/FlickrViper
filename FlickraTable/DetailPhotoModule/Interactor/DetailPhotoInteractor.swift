@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
 class DetailPhotoInteractor{
     private weak var interactorOutput : DetailPhotoInteractorOutput!
+    private var photo: UIImage?
+    private var isFovorite: Bool?
  
 }
 
@@ -28,3 +32,9 @@ extension DetailPhotoInteractor : DetailPhotoInteractorInput{
     }
 }
 
+extension DetailPhotoInteractor {
+    func prepareFototoShow(photo: UIImage, isFavorite: Bool) {
+        self.photo = photo
+        self.isFovorite = isFavorite
+    }
+}

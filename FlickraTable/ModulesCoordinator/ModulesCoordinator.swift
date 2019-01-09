@@ -22,7 +22,7 @@ class ModulesCoordinator {
         
     }
    
-    
+
     init(internetService: InternetServiceInput, rootNavigationVC :UINavigationController) {
         self.internetService = internetService
         self.rootNavigationVC = rootNavigationVC
@@ -32,8 +32,15 @@ class ModulesCoordinator {
 
 extension ModulesCoordinator : FlickraPresenterOutput {
     func photoSelected(photo: UIImage, isFavorite: Bool) {
-         presentgDetailPhotoViewt()
+        presentgDetailPhotoViewt()
         print(rootNavigationVC.viewControllers)
+        for i in 0..<presenterArray.count {
+            guard let presenter = presenterArray[i] as? DetailPhotoPresenterInput else {return}
+            presenter.prepareFototoShow(photo: photo, isFavorite: isFavorite)
+        }
+        
+        
+        
     }
     
     
@@ -42,6 +49,7 @@ extension ModulesCoordinator : FlickraPresenterOutput {
 extension ModulesCoordinator : DetailPhotoPresenterOutput {
     
 }
+
 
 
 extension ModulesCoordinator : RoutingFlickraView {
@@ -71,6 +79,5 @@ extension ModulesCoordinator : RoutingDetailPhotoView {
     func dismissgDetailPhotoView() {
          rootNavigationVC.dismiss(animated: true, completion: nil)
     }
-    
     
 }
