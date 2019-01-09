@@ -15,7 +15,7 @@ protocol FlickraViewtViewInput: class {
 
 }
 
-protocol RoutingFlickraViewtView: class {
+protocol RoutingFlickraView: class {
     func presentFlickraViewt()
     func dismissFlickraView()
 }

@@ -11,22 +11,21 @@ import UIKit
 
 class DetailPhotoAssembly {
     
-    func build(internetService: InternetServiceInput) -> (controller: UIViewController, presenter: FlickraPresenterInput)? {
+    func build() -> (controller: UIViewController, presenter: DetailPhotoPresenterInput)? {
         let storyboard = UIStoryboard(name: "DetailPhotoStoryboard", bundle: nil)
-        guard let detailPhotoVC  = storyboard.instantiateViewController(withIdentifier: "kDetailPhotoIdentifier") as? FlickraViewController else {
+        guard let detailPhotoVC  = storyboard.instantiateViewController(withIdentifier: "kDetailPhotoIdentifier") as? DetailPhotoView else {
             return nil}
         
-        let presenter = FlickraPresenter()
-        let interactor = FlickraInteractor()
-        let photoStorage = PhotosStorage()
+        let presenter = DetailPhotoPresenter()
+        let interactor = DetailPhotoInteractor()
+        
         
         detailPhotoVC.presenterInput = presenter
         presenter.interactorInput = interactor
         presenter.viewInput = detailPhotoVC
         interactor.output = presenter
-        interactor.inputStorage = photoStorage
-        photoStorage.storageOutput = interactor
-        interactor.internetService = internetService
+       
+      
         
         
         return (controller: detailPhotoVC, presenter: presenter)

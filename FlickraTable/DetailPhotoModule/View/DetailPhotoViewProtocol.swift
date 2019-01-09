@@ -15,6 +15,6 @@ protocol DetailPhotoViewInput: class {
 }
 
 protocol RoutingDetailPhotoView: class {
-    func presentFlickraViewt()
-    func dismissFlickraView()
+    func presentgDetailPhotoViewt()
+    func dismissgDetailPhotoView()
 }

@@ -34,9 +34,12 @@ extension ModulesCoordinator : FlickraPresenterOutput {
     
 }
 
+extension ModulesCoordinator : DetailPhotoPresenterOutput {
+    
+}
 
 
-extension ModulesCoordinator : RoutingFlickraViewtView {
+extension ModulesCoordinator : RoutingFlickraView {
     func presentFlickraViewt() {
         let flickraAssembly = FlickraAssembly()
         guard let flickra = flickraAssembly.build(internetService: internetService) else { return}
@@ -48,4 +51,21 @@ extension ModulesCoordinator : RoutingFlickraViewtView {
     func dismissFlickraView() {
          rootNavigationVC.dismiss(animated: true, completion: nil)
     }
+}
+
+extension ModulesCoordinator : RoutingDetailPhotoView {
+    func presentgDetailPhotoViewt() {
+        let detailPhotoView = DetailPhotoAssembly()
+        guard let detailPhoto = detailPhotoView.build() else { return}
+        detailPhoto.presenter.output = self
+        presenterArray.append(detailPhoto.presenter)
+        rootNavigationVC.pushViewController(detailPhoto.controller, animated: true)
+        
+    }
+    
+    func dismissgDetailPhotoView() {
+         rootNavigationVC.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
