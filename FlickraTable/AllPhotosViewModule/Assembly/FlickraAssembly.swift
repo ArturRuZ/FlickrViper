@@ -11,7 +11,7 @@ import UIKit
 
 class FlickraAssembly {
     
-    func build(internetService: InternetServiceInput) -> (controller: UIViewController, presenter: FlickraPresenterInput)? {
+    func build(internetService: InternetServiceInput, database: DatabaseServiceInput) -> (controller: UIViewController, presenter: FlickraPresenterInput)? {
         let storyboard = UIStoryboard(name: "FlickraStoryboard", bundle: nil)
         guard let flickraVC  = storyboard.instantiateViewController(withIdentifier: "kFlickraNavigationControllerIdentifier") as? FlickraViewController else {
             return nil}
@@ -26,8 +26,9 @@ class FlickraAssembly {
         interactor.output = presenter
         interactor.inputStorage = photoStorage
         photoStorage.storageOutput = interactor
-        interactor.internetService = internetService
         
+        interactor.internetService = internetService
+        interactor.databse = database
         
         return (controller: flickraVC, presenter: presenter)
     }

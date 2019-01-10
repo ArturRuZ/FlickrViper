@@ -25,12 +25,7 @@ class DetailPhotoAssembly {
         presenter.viewInput = detailPhotoVC
         interactor.output = presenter
         
-        
-        
-        
+  
         return (controller: detailPhotoVC, presenter: presenter)
     }
-    
-    
-    
 }

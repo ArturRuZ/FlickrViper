@@ -11,7 +11,8 @@ import Foundation
 class FlickraInteractor {
     private weak var interactorOutput : FlickraInteractorOutput!
     private var storageInput : PhotosStorageInput!
-    weak var internetService: InternetServiceInput!
+    var internetService: InternetServiceInput!
+    var databse : DatabaseServiceInput!
     private var isFirstRun = false
 }
 
