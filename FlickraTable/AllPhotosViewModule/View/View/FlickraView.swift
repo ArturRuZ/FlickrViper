@@ -20,14 +20,22 @@ class FlickraViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       presenter.getData()
-   }
+        print("viewDidLoad FlickraViewController")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        presenter.getData()
+    }
+    deinit{
+        print("deinit FlickraViewController")}
+    
     
 }
 
 extension FlickraViewController {
     private func setUpUI() {
-       
+        
         tableView.register(kPhotoTableViewCellNib, forCellReuseIdentifier: kPhotoTableViewCellReuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 360
@@ -46,10 +54,10 @@ extension FlickraViewController: UITableViewDataSource {
                                                        for: indexPath) as? PhotoCellView else {
                                                         return UITableViewCell()
         }
-      
+        
         cell.presenter = self.presenter
         cell.viewModel = storage?[indexPath.row]
-      
+        
         //cell.viewModel = photosResponse?.photos.photo[indexPath.row]
         return cell
     }
@@ -58,7 +66,7 @@ extension FlickraViewController: UITableViewDataSource {
 extension FlickraViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-       
+        
     }
 }
 
@@ -66,8 +74,8 @@ extension FlickraViewController: UITableViewDelegate {
 
 
 extension FlickraViewController : FlickraViewtViewInput {
-   
-
+    
+    
     
     var presenterInput: FlickraPresenterInput {
         get {
@@ -77,14 +85,12 @@ extension FlickraViewController : FlickraViewtViewInput {
             presenter = newValue
         }
     }
-    
-    
 }
 
 extension FlickraViewController {
-     func presentData(storage : [PhotosModel]) {
+    func presentData(storage : [PhotosModel]) {
         self.storage = storage
-        print(self.storage![3])
         setUpUI()
+        tableView.reloadData()
     }
 } 

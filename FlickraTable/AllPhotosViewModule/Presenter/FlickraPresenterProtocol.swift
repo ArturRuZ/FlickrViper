@@ -14,11 +14,12 @@ protocol FlickraPresenterInput: class {
     var viewInput: FlickraViewtViewInput { get set }
     var interactorInput: FlickraInteractorInput { get set }
     func getData()
-    func photoSelected(photo : UIImage, isFavorite: Bool)
+    func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage)
+    func updateData(updateData: ViewCellModel)
 }
 
 protocol FlickraPresenterOutput: class {
-    func photoSelected(photo: UIImage, isFavorite: Bool)
+    func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage)
 }
 
 

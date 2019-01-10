@@ -14,13 +14,13 @@ class FlickraPresenter {
     private weak var presenterOutputToCoordinator : FlickraPresenterOutput!
     private weak var view : FlickraViewtViewInput!
     private var interactor: FlickraInteractorInput!
-   
+    
     
     
 }
 
 extension FlickraPresenter : FlickraPresenterInput {
-  
+    
     var output: FlickraPresenterOutput {
         get {
             return presenterOutputToCoordinator
@@ -61,7 +61,11 @@ extension FlickraPresenter : FlickraInteractorOutput {
     
 }
 extension FlickraPresenter{
-    func photoSelected(photo: UIImage, isFavorite: Bool) {
-        presenterOutputToCoordinator?.photoSelected(photo: photo, isFavorite: isFavorite)
+    func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage) {
+        presenterOutputToCoordinator?.photoSelected(dataCell: dataCell, selectedPhoto: selectedPhoto)
+    }
+    func updateData(updateData: ViewCellModel){
+        interactor.updateData(updateData: updateData)
+        
     }
 }

@@ -7,11 +7,12 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol ViewCellModel {
-    var photoName : String { get }
-    var photoUrl : String {get}
+    var title : String { get }
+    var url : String {get}
     var id : String {get}
-    var isFavorite: Bool {get}
+    var isFavorite: Bool {get set}
+    
 }

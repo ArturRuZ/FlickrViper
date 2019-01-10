@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2b-Bx-6t2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2b-Bx-6t2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s09-q1-5fk">
@@ -28,6 +28,9 @@
                                     <constraint firstAttribute="width" constant="30" id="Hyj-8o-Ed4"/>
                                 </constraints>
                                 <state key="normal" image="baseline_favorite_border_black_36pt"/>
+                                <connections>
+                                    <action selector="favoritesButton:" destination="NY0-k0-Og9" eventType="touchUpInside" id="Rqf-r8-O91"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0B-uO-PDC">
                                 <rect key="frame" x="166.5" y="49" width="42" height="21"/>
@@ -53,6 +56,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GhB-VF-N91"/>
                     </view>
+                    <connections>
+                        <outlet property="detailPhotoImageView" destination="l2b-Bx-6t2" id="LAn-ZA-j9y"/>
+                        <outlet property="detailPhotoTitle" destination="z0B-uO-PDC" id="K4Q-At-R11"/>
+                        <outlet property="favoritesIcon" destination="s09-q1-5fk" id="DH3-7p-uxS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uZ-tN-vlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

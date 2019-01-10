@@ -11,7 +11,8 @@ import Foundation
 protocol PhotosStorageInput: class {
     var storageOutput : PhotosStorageOutput {get set}
     func saveData(data: PhotosResponse)
-    
+    func updateData (updateData: ViewCellModel)
+    func presentData()
 }
 
 protocol PhotosStorageOutput: class {

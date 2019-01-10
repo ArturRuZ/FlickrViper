@@ -21,8 +21,8 @@ class ModulesCoordinator {
         return rootNavigationVC
         
     }
-   
-
+    
+    
     init(internetService: InternetServiceInput, rootNavigationVC :UINavigationController) {
         self.internetService = internetService
         self.rootNavigationVC = rootNavigationVC
@@ -31,12 +31,12 @@ class ModulesCoordinator {
 
 
 extension ModulesCoordinator : FlickraPresenterOutput {
-    func photoSelected(photo: UIImage, isFavorite: Bool) {
+    func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage) {
         presentgDetailPhotoViewt()
-        print(rootNavigationVC.viewControllers)
+        
         for i in 0..<presenterArray.count {
-            guard let presenter = presenterArray[i] as? DetailPhotoPresenterInput else {return}
-            presenter.prepareFototoShow(photo: photo, isFavorite: isFavorite)
+            guard let presenter = presenterArray[i] as? DetailPhotoPresenterInput else {continue}
+            presenter.prepareFototoShow(dataCell: dataCell, selectedPhoto: selectedPhoto)
         }
         
         
@@ -47,7 +47,17 @@ extension ModulesCoordinator : FlickraPresenterOutput {
 }
 
 extension ModulesCoordinator : DetailPhotoPresenterOutput {
-    
+    func saveChanges(savedData: ViewCellModel) {
+        for i in 0..<presenterArray.count {
+            guard presenterArray[i] is DetailPhotoPresenterInput else {continue}
+            presenterArray.remove(at: i)
+            print (presenterArray.count)
+            for i in 0..<presenterArray.count {
+                guard let presenter = presenterArray[i] as? FlickraPresenterInput else {continue}
+                presenter.updateData(updateData: savedData)
+            }
+        }
+    }
 }
 
 
@@ -58,11 +68,12 @@ extension ModulesCoordinator : RoutingFlickraView {
         guard let flickra = flickraAssembly.build(internetService: internetService) else { return}
         flickra.presenter.output = self
         presenterArray.append(flickra.presenter)
+        
         rootNavigationVC.pushViewController(flickra.controller, animated: true)
     }
     
     func dismissFlickraView() {
-         rootNavigationVC.dismiss(animated: true, completion: nil)
+        rootNavigationVC.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -77,7 +88,7 @@ extension ModulesCoordinator : RoutingDetailPhotoView {
     }
     
     func dismissgDetailPhotoView() {
-         rootNavigationVC.dismiss(animated: true, completion: nil)
+        rootNavigationVC.dismiss(animated: true, completion: nil)
     }
     
 }

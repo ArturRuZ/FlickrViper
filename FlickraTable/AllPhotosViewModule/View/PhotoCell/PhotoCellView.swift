@@ -12,7 +12,7 @@ import Kingfisher
 
 
 class PhotoCellView : UITableViewCell {
-
+    
     @IBOutlet weak var photo: UIImageView!
     
     @IBOutlet weak var photoName: UILabel!
@@ -25,9 +25,9 @@ class PhotoCellView : UITableViewCell {
     var viewModel: ViewCellModel? {
         didSet {
             guard let viewModel = viewModel else { return }
-            photoName.text = viewModel.photoName
+            photoName.text = viewModel.title
             photo.kf.indicatorType = .activity
-            let url = URL(string : viewModel.photoUrl)
+            let url = URL(string : viewModel.url)
             let cacheKey = viewModel.id
             let resource = ImageResource(downloadURL: url! , cacheKey: cacheKey)
             photo.kf.setImage(with: resource)
@@ -39,11 +39,11 @@ class PhotoCellView : UITableViewCell {
             viewModel.isFavorite ? favoritesIcon.setImage(favoriteImage, for: .normal) : favoritesIcon.setImage(unfavoriteImage, for: .normal)
         }
     }
-   
+    
     @objc func selectImage(sender: UIGestureRecognizer){
-       guard let presenter = presenter else { return }
-       guard let viewModel = viewModel else { return }
-       guard let photo = photo.image else { return }
-       presenter.photoSelected(photo: photo, isFavorite: viewModel.isFavorite)
+        guard let presenter = presenter else { return }
+        guard let viewModel = viewModel else { return }
+        guard let photo = photo.image else { return }
+        presenter.photoSelected(dataCell: viewModel, selectedPhoto: photo)
     }
 }

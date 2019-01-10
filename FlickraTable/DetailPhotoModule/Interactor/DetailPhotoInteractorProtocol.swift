@@ -12,10 +12,10 @@ import UIKit
 protocol  DetailPhotoInteractorInput: class {
     var output: DetailPhotoInteractorOutput { get set }
     func getData()
-    func prepareFototoShow(photo: UIImage, isFavorite: Bool)
+    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage)
     
 }
 
 protocol DetailPhotoInteractorOutput: class {
-    func presentData(storage : [PhotosModel])
+    func presentData(data: ViewCellModel, photo: UIImage)
 }

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DetailPhotoViewInput: class {
     var presenterInput: DetailPhotoPresenterInput { get set }
-
+    func presentPhoto(data: ViewCellModel, photo: UIImage)
     
 }
 

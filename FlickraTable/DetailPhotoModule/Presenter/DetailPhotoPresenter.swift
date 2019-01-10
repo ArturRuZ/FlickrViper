@@ -15,7 +15,8 @@ class DetailPhotoPresenter {
     private weak var view : DetailPhotoViewInput!
     private var interactor: DetailPhotoInteractorInput!
     
-    
+    deinit{
+        print("deinit DetailPhotoPresenter")}
     
 }
 
@@ -50,18 +51,21 @@ extension DetailPhotoPresenter : DetailPhotoPresenterInput {
     }
     
     func getData() {
-        
+        interactor.getData()
     }
 }
 
 extension DetailPhotoPresenter : DetailPhotoInteractorOutput {
-    func presentData(storage: [PhotosModel]) {
-        
+    func presentData(data: ViewCellModel, photo: UIImage) {
+        view.presentPhoto(data: data, photo: photo)
     }
     
 }
 extension DetailPhotoPresenter{
-func prepareFototoShow(photo: UIImage, isFavorite: Bool) {
-    interactor?.prepareFototoShow(photo: photo, isFavorite: isFavorite)
-}
+    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage) {
+        interactor.prepareFototoShow(dataCell: dataCell, selectedPhoto: selectedPhoto)
+    }
+    func saveChanges(savedData: ViewCellModel){
+        presenterOutputToCoordinator.saveChanges(savedData: savedData)
+    }
 }

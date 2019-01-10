@@ -34,10 +34,18 @@ extension PhotosStorage {
     }
 }
 
-//extension PhotosStorage: ViewCellModel {
-    
-    
-  //  }
+extension PhotosStorage{
+    func updateData(updateData: ViewCellModel) {
+        for i in 0..<storage.count {
+            if  storage[i].id == updateData.id  {
+                storage[i].isFavorite = updateData.isFavorite}
+        }
+    }
+    func presentData() {
+        interactor.presentData(storage: storage)
+
+    }
+}
     
     
     

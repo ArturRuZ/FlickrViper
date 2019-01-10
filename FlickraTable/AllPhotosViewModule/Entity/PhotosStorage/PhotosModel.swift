@@ -7,23 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
-struct PhotosModel {
+struct PhotosModel: ViewCellModel {
    
     let title : String
     let url : String
     let id : String
     var isFavorite : Bool
-    
 }
-extension PhotosModel : ViewCellModel {
-    var photoUrl: String {
-        return url
-    }
-    
-    var photoName: String {
-        return title
-    }
-    
-    
-}
+

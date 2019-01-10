@@ -12,7 +12,7 @@ import Foundation
 protocol FlickraViewtViewInput: class {
     var presenterInput: FlickraPresenterInput { get set }
     func presentData(storage : [PhotosModel])
-
+    
 }
 
 protocol RoutingFlickraView: class {

@@ -13,6 +13,7 @@ protocol  FlickraInteractorInput: class {
     var output: FlickraInteractorOutput { get set }
     var inputStorage : PhotosStorageInput { get set }
     func getData()
+    func updateData(updateData: ViewCellModel)
     
     
 }

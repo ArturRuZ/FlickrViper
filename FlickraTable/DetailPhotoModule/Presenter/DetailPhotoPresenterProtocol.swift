@@ -14,12 +14,13 @@ protocol DetailPhotoPresenterInput: class {
     var viewInput:  DetailPhotoViewInput { get set }
     var interactorInput:  DetailPhotoInteractorInput { get set }
     func getData()
-    func prepareFototoShow(photo: UIImage, isFavorite: Bool)
+    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage)
+    func saveChanges(savedData: ViewCellModel)
     
 }
 
 protocol  DetailPhotoPresenterOutput: class {
-    
+    func saveChanges(savedData: ViewCellModel)
 }
 
 
