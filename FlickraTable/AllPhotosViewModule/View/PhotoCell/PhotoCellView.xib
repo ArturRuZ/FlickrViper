@@ -25,7 +25,6 @@
                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstAttribute="width" constant="320" id="Yx9-GQ-VCe"/>
                             <constraint firstAttribute="height" constant="320" id="lWf-33-1A1"/>
                         </constraints>
                     </imageView>
