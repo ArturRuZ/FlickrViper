@@ -17,7 +17,7 @@ class ModulesCoordinator {
     private var presenterArray : [Any] = []
     
     func rootModuleController() -> UIViewController {
-        presentFlickraViewt()
+        presentFlickraView()
         return rootNavigationVC
         
     }
@@ -33,12 +33,31 @@ class ModulesCoordinator {
 
 extension ModulesCoordinator : FlickraPresenterOutput {
     func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage) {
-        presentgDetailPhotoViewt()
+        presentDetailPhotoView()
 
         for i in 0..<presenterArray.count {
             guard let presenter = presenterArray[i] as? DetailPhotoPresenterInput else {continue}
             presenter.prepareFototoShow(dataCell: dataCell, selectedPhoto: selectedPhoto)
         }   
+    }
+    func showFavorites(){
+        presentFavoritesView()
+        for i in 0..<presenterArray.count {
+            guard let presenter = presenterArray[i] as? FavoritesPresenterInput else {continue}
+        }
+    }
+}
+
+extension ModulesCoordinator : RoutingFlickraView {
+    func presentFlickraView() {
+        let flickraAssembly = FlickraAssembly()
+        guard let flickra = flickraAssembly.build(internetService: internetService, database: database) else { return}
+        flickra.presenter.output = self
+        presenterArray.append(flickra.presenter)
+        rootNavigationVC.pushViewController(flickra.controller, animated: true)
+    }
+    
+    func dismissFlickraView() {
     }
 }
 
@@ -56,35 +75,39 @@ extension ModulesCoordinator : DetailPhotoPresenterOutput {
     }
 }
 
-
-
-extension ModulesCoordinator : RoutingFlickraView {
-    func presentFlickraViewt() {
-        let flickraAssembly = FlickraAssembly()
-        guard let flickra = flickraAssembly.build(internetService: internetService, database: database) else { return}
-        flickra.presenter.output = self
-        presenterArray.append(flickra.presenter)
-        flickra.controller.title = "Flickr Photos"
-        rootNavigationVC.pushViewController(flickra.controller, animated: true)
-    }
-    
-    func dismissFlickraView() {
-        rootNavigationVC.dismiss(animated: true, completion: nil)
-    }
-}
-
 extension ModulesCoordinator : RoutingDetailPhotoView {
-    func presentgDetailPhotoViewt() {
+    func presentDetailPhotoView() {
         let detailPhotoView = DetailPhotoAssembly()
         guard let detailPhoto = detailPhotoView.build() else { return}
         detailPhoto.presenter.output = self
         presenterArray.append(detailPhoto.presenter)
         rootNavigationVC.pushViewController(detailPhoto.controller, animated: true)
-        
     }
     
-    func dismissgDetailPhotoView() {
-        rootNavigationVC.dismiss(animated: true, completion: nil)
+    func dismissDetailPhotoView() {
+    }
+}
+
+
+extension ModulesCoordinator : FavoritesPresenterOutput {
+    
+    func callback(){
+        for i in 0..<presenterArray.count {
+            guard presenterArray[i] is FavoritesPresenterInput else {continue}
+            presenterArray.remove(at: i)
+        }
+    }
+}
+
+extension ModulesCoordinator : RoutingFavoritesView {
+    func presentFavoritesView() {
+        let favoritesView = FavoritesAssembly()
+        guard let favorites = favoritesView.build() else { return}
+        favorites.presenter.output = self
+        presenterArray.append(favorites.presenter)
+        rootNavigationVC.pushViewController(favorites.controller, animated: true)
     }
     
+    func dismissFavoritesView() {
+    }
 }

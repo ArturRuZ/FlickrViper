@@ -16,10 +16,12 @@ protocol FlickraPresenterInput: class {
     func getData()
     func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage)
     func updateData(updateData: ViewCellModel)
+    func showFavorites()
 }
 
 protocol FlickraPresenterOutput: class {
     func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage)
+    func showFavorites()
 }
 
 

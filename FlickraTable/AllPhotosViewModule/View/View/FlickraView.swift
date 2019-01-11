@@ -25,12 +25,17 @@ class FlickraViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.title = "Flickr Photos"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:(UIImage(named: "baseline_view_headline_black_36pt")), style: .done, target: self, action: #selector(showFavorites))
         presenter.getData()
     }
+    
     deinit{
         print("deinit FlickraViewController")}
     
-    
+    @objc func showFavorites() {
+        presenter.showFavorites()
+    }
 }
 
 extension FlickraViewController {

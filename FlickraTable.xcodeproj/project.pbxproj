@@ -27,6 +27,16 @@
 		3457243421D792A1004A806A /* PhotosStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243321D792A1004A806A /* PhotosStorage.swift */; };
 		3457243621D7942B004A806A /* PhotosStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243521D7942B004A806A /* PhotosStorageProtocol.swift */; };
 		3457243921D8CB20004A806A /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243821D8CB20004A806A /* PhotosModel.swift */; };
+		348CB87521E8FD4900A018AB /* FavoritesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348CB87421E8FD4900A018AB /* FavoritesStoryboard.storyboard */; };
+		348CB87721E8FD8100A018AB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87621E8FD8100A018AB /* FavoritesView.swift */; };
+		348CB87921E8FD9000A018AB /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87821E8FD9000A018AB /* FavoritesProtocol.swift */; };
+		348CB87C21E8FDBC00A018AB /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87B21E8FDBC00A018AB /* FavoritesCell.swift */; };
+		348CB87E21E8FDDC00A018AB /* FavoritesCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348CB87D21E8FDDC00A018AB /* FavoritesCellView.xib */; };
+		348CB88021E8FDF500A018AB /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87F21E8FDF500A018AB /* FavoritesPresenter.swift */; };
+		348CB88221E8FE0400A018AB /* FavoritesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88121E8FE0400A018AB /* FavoritesPresenterProtocol.swift */; };
+		348CB88421E8FE9500A018AB /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88321E8FE9500A018AB /* FavoritesInteractor.swift */; };
+		348CB88621E8FEA000A018AB /* FavoritesInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88521E8FEA000A018AB /* FavoritesInteractorProtocol.swift */; };
+		348CB88821E8FEAF00A018AB /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88721E8FEAF00A018AB /* FavoritesAssembly.swift */; };
 		349B531221E4DE4300EB7BD9 /* InternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531121E4DE4300EB7BD9 /* InternetService.swift */; };
 		349B531621E4DE7A00EB7BD9 /* InternetService Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */; };
 		349B532021E50DDE00EB7BD9 /* DetailPhotoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531F21E50DDE00EB7BD9 /* DetailPhotoAssembly.swift */; };
@@ -67,6 +77,16 @@
 		3457243321D792A1004A806A /* PhotosStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStorage.swift; sourceTree = "<group>"; };
 		3457243521D7942B004A806A /* PhotosStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStorageProtocol.swift; sourceTree = "<group>"; };
 		3457243821D8CB20004A806A /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
+		348CB87421E8FD4900A018AB /* FavoritesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesStoryboard.storyboard; sourceTree = "<group>"; };
+		348CB87621E8FD8100A018AB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		348CB87821E8FD9000A018AB /* FavoritesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
+		348CB87B21E8FDBC00A018AB /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		348CB87D21E8FDDC00A018AB /* FavoritesCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCellView.xib; sourceTree = "<group>"; };
+		348CB87F21E8FDF500A018AB /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		348CB88121E8FE0400A018AB /* FavoritesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterProtocol.swift; sourceTree = "<group>"; };
+		348CB88321E8FE9500A018AB /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		348CB88521E8FEA000A018AB /* FavoritesInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorProtocol.swift; sourceTree = "<group>"; };
+		348CB88721E8FEAF00A018AB /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
 		349B531121E4DE4300EB7BD9 /* InternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetService.swift; sourceTree = "<group>"; };
 		349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InternetService Protocol.swift"; sourceTree = "<group>"; };
 		349B531F21E50DDE00EB7BD9 /* DetailPhotoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoAssembly.swift; sourceTree = "<group>"; };
@@ -124,6 +144,7 @@
 				344538F921D53A7000959319 /* ModulesCoordinator */,
 				3445390121D53BA500959319 /* AllPhotosViewModule */,
 				349B531821E50CEF00EB7BD9 /* DetailPhotoModule */,
+				348CB86F21E8FC6600A018AB /* FavoritesModule */,
 			);
 			path = FlickraTable;
 			sourceTree = "<group>";
@@ -230,6 +251,63 @@
 			path = PhotosStorage;
 			sourceTree = "<group>";
 		};
+		348CB86F21E8FC6600A018AB /* FavoritesModule */ = {
+			isa = PBXGroup;
+			children = (
+				348CB87121E8FD0400A018AB /* Assembly */,
+				348CB87221E8FD0A00A018AB /* Interactor */,
+				348CB87321E8FD1800A018AB /* Presenter */,
+				348CB87021E8FCF600A018AB /* View */,
+			);
+			path = FavoritesModule;
+			sourceTree = "<group>";
+		};
+		348CB87021E8FCF600A018AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				348CB87A21E8FDA800A018AB /* FavoritesCell */,
+				348CB87421E8FD4900A018AB /* FavoritesStoryboard.storyboard */,
+				348CB87621E8FD8100A018AB /* FavoritesView.swift */,
+				348CB87821E8FD9000A018AB /* FavoritesProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		348CB87121E8FD0400A018AB /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				348CB88721E8FEAF00A018AB /* FavoritesAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		348CB87221E8FD0A00A018AB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				348CB88321E8FE9500A018AB /* FavoritesInteractor.swift */,
+				348CB88521E8FEA000A018AB /* FavoritesInteractorProtocol.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		348CB87321E8FD1800A018AB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				348CB87F21E8FDF500A018AB /* FavoritesPresenter.swift */,
+				348CB88121E8FE0400A018AB /* FavoritesPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		348CB87A21E8FDA800A018AB /* FavoritesCell */ = {
+			isa = PBXGroup;
+			children = (
+				348CB87B21E8FDBC00A018AB /* FavoritesCell.swift */,
+				348CB87D21E8FDDC00A018AB /* FavoritesCellView.xib */,
+			);
+			path = FavoritesCell;
+			sourceTree = "<group>";
+		};
 		349B530E21E4DD2500EB7BD9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,9 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				349B531B21E50D8C00EB7BD9 /* Assembly */,
-				349B531C21E50D9500EB7BD9 /* View */,
-				349B531A21E50D7F00EB7BD9 /* Presenter */,
 				349B531921E50D7200EB7BD9 /* Interactor */,
+				349B531A21E50D7F00EB7BD9 /* Presenter */,
+				349B531C21E50D9500EB7BD9 /* View */,
 			);
 			path = DetailPhotoModule;
 			sourceTree = "<group>";
@@ -308,9 +386,9 @@
 		349B531C21E50D9500EB7BD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				349B533521E511FB00EB7BD9 /* DetailPhotoViewProtocol.swift */,
-				34ED435221E686C600D635D6 /* DetailPhotoView.swift */,
 				34ED435021E6868400D635D6 /* DetailPhotoViewStoryboard.storyboard */,
+				34ED435221E686C600D635D6 /* DetailPhotoView.swift */,
+				349B533521E511FB00EB7BD9 /* DetailPhotoViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,7 +480,9 @@
 			files = (
 				3445391121D53D6900959319 /* FlickraStoryboard.storyboard in Resources */,
 				34ED435121E6868400D635D6 /* DetailPhotoViewStoryboard.storyboard in Resources */,
+				348CB87E21E8FDDC00A018AB /* FavoritesCellView.xib in Resources */,
 				344538EF21D539C100959319 /* LaunchScreen.storyboard in Resources */,
+				348CB87521E8FD4900A018AB /* FavoritesStoryboard.storyboard in Resources */,
 				344538EC21D539C100959319 /* Assets.xcassets in Resources */,
 				3457243221D78559004A806A /* PhotoCellView.xib in Resources */,
 			);
@@ -462,11 +542,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348CB88421E8FE9500A018AB /* FavoritesInteractor.swift in Sources */,
 				34ED435321E686C600D635D6 /* DetailPhotoView.swift in Sources */,
 				344538FB21D53A9500959319 /* ModulesCoordinator.swift in Sources */,
+				348CB87C21E8FDBC00A018AB /* FavoritesCell.swift in Sources */,
 				349B532021E50DDE00EB7BD9 /* DetailPhotoAssembly.swift in Sources */,
+				348CB88821E8FEAF00A018AB /* FavoritesAssembly.swift in Sources */,
+				348CB88621E8FEA000A018AB /* FavoritesInteractorProtocol.swift in Sources */,
 				34ED437721E7E64900D635D6 /* DatabaseServiceProtocols.swift in Sources */,
 				349B531221E4DE4300EB7BD9 /* InternetService.swift in Sources */,
+				348CB88221E8FE0400A018AB /* FavoritesPresenterProtocol.swift in Sources */,
 				3445390721D53C8500959319 /* FlickraInteractorProtocol.swift in Sources */,
 				3457243421D792A1004A806A /* PhotosStorage.swift in Sources */,
 				3445390F21D53D4400959319 /* FlickraView.swift in Sources */,
@@ -477,9 +562,11 @@
 				349B533221E5112D00EB7BD9 /* DetailPhotoPresenterProtocol.swift in Sources */,
 				349B532421E50DFC00EB7BD9 /* DetailPhotoPresenter.swift in Sources */,
 				344538F821D53A4900959319 /* Application.swift in Sources */,
+				348CB87721E8FD8100A018AB /* FavoritesView.swift in Sources */,
 				3457242D21D7840E004A806A /* PhotoCellView.swift in Sources */,
 				3445391321D5456800959319 /* FlickraViewProtocol.swift in Sources */,
 				3457243021D7851D004A806A /* PhotoCellViewProtocol.swift in Sources */,
+				348CB87921E8FD9000A018AB /* FavoritesProtocol.swift in Sources */,
 				3445390521D53C6700959319 /* FlickraInteractor.swift in Sources */,
 				3445390D21D53CF100959319 /* FlickraAssembly.swift in Sources */,
 				349B531621E4DE7A00EB7BD9 /* InternetService Protocol.swift in Sources */,
@@ -489,6 +576,7 @@
 				34ED437521E7E63500D635D6 /* DatabaseService.swift in Sources */,
 				3457243621D7942B004A806A /* PhotosStorageProtocol.swift in Sources */,
 				3445390B21D53CB400959319 /* FlickraPresenterProtocol.swift in Sources */,
+				348CB88021E8FDF500A018AB /* FavoritesPresenter.swift in Sources */,
 				3457243921D8CB20004A806A /* PhotosModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

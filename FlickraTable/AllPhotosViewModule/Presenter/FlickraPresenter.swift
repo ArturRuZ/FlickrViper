@@ -66,6 +66,9 @@ extension FlickraPresenter{
     }
     func updateData(updateData: ViewCellModel){
         interactor.updateData(updateData: updateData)
-        
+    }
+    func showFavorites(){
+        presenterOutputToCoordinator.showFavorites()
     }
 }
+
