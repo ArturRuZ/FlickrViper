@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-struct PostEntity {
-    var id: String
-    var title: String
-    var url: URL
+class PostEntity: Object {
+    var id: String?
+    var  title: String?
+    var url: String?
+    var isFavorite: String?
+    
+    
 }

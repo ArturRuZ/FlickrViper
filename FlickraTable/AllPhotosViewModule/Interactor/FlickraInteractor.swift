@@ -27,7 +27,10 @@ extension FlickraInteractor : FlickraInteractorInput {
     }
     
     func getData() {
-        isFirstRun ? storageInput.presentData() : downloadData()
+        //isFirstRun ? storageInput.presentData() : downloadData()
+        downloadData()
+   //let entites = databse.loadEntites()
+       
     }
     
     var output: FlickraInteractorOutput {
@@ -41,7 +44,7 @@ extension FlickraInteractor : FlickraInteractorInput {
 }
 extension FlickraInteractor : PhotosStorageOutput {
     func presentData(storage: [PhotosModel]) {
-        interactorOutput.presentData(storage: storage)
+       interactorOutput.presentData(storage: storage)
     }
 }
 
@@ -49,7 +52,18 @@ extension FlickraInteractor {
     private func downloadData() {
         let url = URL(string: "https://www.flickr.com/services/rest?method=flickr.interestingness.getList&api_key=3988023e15f45c8d4ef5590261b1dc53&per_page=40&page=1&format=json&nojsoncallback=1&extras=url_l&date=2018-09-23")
         internetService.loadData(fromURL: url, parseInto: PhotosResponse.self, success: { (response: PhotosResponse) in
-            self.storageInput.saveData(data: response)
+            //self.storageInput.saveData(data: response)
+            var postEntity:[PostEntity]=[]
+            for i in 0..<response.photos.photo.count {
+                
+                let entity = PostEntity()
+                 entity.id = response.photos.photo[i].id
+                 entity.title = response.photos.photo[i].title
+                 entity.url = response.photos.photo[i].url_l
+                 entity.isFavorite = "0"
+                
+                 postEntity.append(entity)}
+             self.databse.saveEntites(data: postEntity)
             self.isFirstRun = true
         }) { (code) in
             print("Error")
