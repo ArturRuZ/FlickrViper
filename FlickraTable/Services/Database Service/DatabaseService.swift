@@ -25,18 +25,20 @@ class DatabaseService: DatabaseServiceInput {
     }
     
     func saveEntites(data: [PostEntity])  {
-       try! realm.write {
-        realm.deleteAll()}
+    //  try! realm.write {
+      //  realm.deleteAll()}
          print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         for i in 0..<data.count {
-            let entity = realm.objects(PostEntity.self).filter("id == '\(data[i].id!))'")
-           print("id == \(data[i].id!)")
-           if entity.count == 0 {
-                try! realm.write {
+            print (data.count)
+            let entity = realm.objects(PostEntity.self).filter("id == '\(data[i].id!)'")
+           print("id == '\(data[i].id!)'")
+            print(entity.count)
+            if entity.count == 0 {
+              try! realm.write {
                     realm.create(PostEntity.self, value:[data[i].id,data[i].title,data[i].url, data[i].isFavorite])
-                   // realm.add(data[i])
-                      print("Added new object")
+                   //realm.add(data[i])
+                
                 }
             }
         }
