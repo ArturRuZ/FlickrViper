@@ -105,7 +105,8 @@ extension ModulesCoordinator : RoutingFavoritesView {
         guard let favorites = favoritesView.build() else { return}
         favorites.presenter.output = self
         presenterArray.append(favorites.presenter)
-        rootNavigationVC.pushViewController(favorites.controller, animated: true)
+         print(rootNavigationVC.viewControllers)
+         rootNavigationVC.pushViewController(favorites.controller, animated: true)
     }
     
     func dismissFavoritesView() {

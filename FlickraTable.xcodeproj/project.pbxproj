@@ -30,13 +30,13 @@
 		348CB87521E8FD4900A018AB /* FavoritesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348CB87421E8FD4900A018AB /* FavoritesStoryboard.storyboard */; };
 		348CB87721E8FD8100A018AB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87621E8FD8100A018AB /* FavoritesView.swift */; };
 		348CB87921E8FD9000A018AB /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87821E8FD9000A018AB /* FavoritesProtocol.swift */; };
-		348CB87C21E8FDBC00A018AB /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87B21E8FDBC00A018AB /* FavoritesCell.swift */; };
-		348CB87E21E8FDDC00A018AB /* FavoritesCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348CB87D21E8FDDC00A018AB /* FavoritesCellView.xib */; };
 		348CB88021E8FDF500A018AB /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB87F21E8FDF500A018AB /* FavoritesPresenter.swift */; };
 		348CB88221E8FE0400A018AB /* FavoritesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88121E8FE0400A018AB /* FavoritesPresenterProtocol.swift */; };
 		348CB88421E8FE9500A018AB /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88321E8FE9500A018AB /* FavoritesInteractor.swift */; };
 		348CB88621E8FEA000A018AB /* FavoritesInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88521E8FEA000A018AB /* FavoritesInteractorProtocol.swift */; };
 		348CB88821E8FEAF00A018AB /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CB88721E8FEAF00A018AB /* FavoritesAssembly.swift */; };
+		34963BA521EBAAA500E491D0 /* FavoritesCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34963BA421EBAAA500E491D0 /* FavoritesCellView.xib */; };
+		34963BA721EBADE900E491D0 /* FavoritesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34963BA621EBADE900E491D0 /* FavoritesCellView.swift */; };
 		349B531221E4DE4300EB7BD9 /* InternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531121E4DE4300EB7BD9 /* InternetService.swift */; };
 		349B531621E4DE7A00EB7BD9 /* InternetService Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */; };
 		349B532021E50DDE00EB7BD9 /* DetailPhotoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B531F21E50DDE00EB7BD9 /* DetailPhotoAssembly.swift */; };
@@ -80,13 +80,13 @@
 		348CB87421E8FD4900A018AB /* FavoritesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesStoryboard.storyboard; sourceTree = "<group>"; };
 		348CB87621E8FD8100A018AB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		348CB87821E8FD9000A018AB /* FavoritesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesProtocol.swift; sourceTree = "<group>"; };
-		348CB87B21E8FDBC00A018AB /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
-		348CB87D21E8FDDC00A018AB /* FavoritesCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCellView.xib; sourceTree = "<group>"; };
 		348CB87F21E8FDF500A018AB /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		348CB88121E8FE0400A018AB /* FavoritesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterProtocol.swift; sourceTree = "<group>"; };
 		348CB88321E8FE9500A018AB /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		348CB88521E8FEA000A018AB /* FavoritesInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorProtocol.swift; sourceTree = "<group>"; };
 		348CB88721E8FEAF00A018AB /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		34963BA421EBAAA500E491D0 /* FavoritesCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCellView.xib; sourceTree = "<group>"; };
+		34963BA621EBADE900E491D0 /* FavoritesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCellView.swift; sourceTree = "<group>"; };
 		349B531121E4DE4300EB7BD9 /* InternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetService.swift; sourceTree = "<group>"; };
 		349B531521E4DE7A00EB7BD9 /* InternetService Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InternetService Protocol.swift"; sourceTree = "<group>"; };
 		349B531F21E50DDE00EB7BD9 /* DetailPhotoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoAssembly.swift; sourceTree = "<group>"; };
@@ -302,8 +302,8 @@
 		348CB87A21E8FDA800A018AB /* FavoritesCell */ = {
 			isa = PBXGroup;
 			children = (
-				348CB87B21E8FDBC00A018AB /* FavoritesCell.swift */,
-				348CB87D21E8FDDC00A018AB /* FavoritesCellView.xib */,
+				34963BA421EBAAA500E491D0 /* FavoritesCellView.xib */,
+				34963BA621EBADE900E491D0 /* FavoritesCellView.swift */,
 			);
 			path = FavoritesCell;
 			sourceTree = "<group>";
@@ -480,7 +480,7 @@
 			files = (
 				3445391121D53D6900959319 /* FlickraStoryboard.storyboard in Resources */,
 				34ED435121E6868400D635D6 /* DetailPhotoViewStoryboard.storyboard in Resources */,
-				348CB87E21E8FDDC00A018AB /* FavoritesCellView.xib in Resources */,
+				34963BA521EBAAA500E491D0 /* FavoritesCellView.xib in Resources */,
 				344538EF21D539C100959319 /* LaunchScreen.storyboard in Resources */,
 				348CB87521E8FD4900A018AB /* FavoritesStoryboard.storyboard in Resources */,
 				344538EC21D539C100959319 /* Assets.xcassets in Resources */,
@@ -549,7 +549,6 @@
 				348CB88421E8FE9500A018AB /* FavoritesInteractor.swift in Sources */,
 				34ED435321E686C600D635D6 /* DetailPhotoView.swift in Sources */,
 				344538FB21D53A9500959319 /* ModulesCoordinator.swift in Sources */,
-				348CB87C21E8FDBC00A018AB /* FavoritesCell.swift in Sources */,
 				349B532021E50DDE00EB7BD9 /* DetailPhotoAssembly.swift in Sources */,
 				348CB88821E8FEAF00A018AB /* FavoritesAssembly.swift in Sources */,
 				348CB88621E8FEA000A018AB /* FavoritesInteractorProtocol.swift in Sources */,
@@ -579,6 +578,7 @@
 				349B532621E50E0A00EB7BD9 /* DetailPhotoInteractor.swift in Sources */,
 				34ED437521E7E63500D635D6 /* DatabaseService.swift in Sources */,
 				3457243621D7942B004A806A /* PhotosStorageProtocol.swift in Sources */,
+				34963BA721EBADE900E491D0 /* FavoritesCellView.swift in Sources */,
 				3445390B21D53CB400959319 /* FlickraPresenterProtocol.swift in Sources */,
 				348CB88021E8FDF500A018AB /* FavoritesPresenter.swift in Sources */,
 				3457243921D8CB20004A806A /* PhotosModel.swift in Sources */,

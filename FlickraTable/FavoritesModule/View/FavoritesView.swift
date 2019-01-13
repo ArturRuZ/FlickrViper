@@ -11,15 +11,17 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    @IBOutlet weak var favoritesTableView: UITableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    private let kFavoritesCellNib = UINib(nibName: "FavoritesCellView", bundle: nil)
-    private let kFavoritesCellReuseIdentifier = "kFavoritesCellReuseIdentifier"
+  private let kFavoritesCellNib = UINib(nibName: "FavoritesCellView", bundle: nil)
+  private let kFavoritesCellReuseIdentifier = "kFavoritesCellReuseIdentifier"
+  
     private var presenter : FavoritesPresenterInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        setUpUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +30,7 @@ class FavoritesViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        presenter.callback()
+       presenter.callback()
     }
 }
 
@@ -45,18 +47,20 @@ extension FavoritesViewController : FavoritesViewInput {
 
 extension FavoritesViewController {
     private func setUpUI() {
-        tableView.register(kFavoritesCellNib, forCellReuseIdentifier: kFavoritesCellReuseIdentifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 66
-        tableView.dataSource = self
-        tableView.delegate = self
+       favoritesTableView.register(kFavoritesCellNib, forCellReuseIdentifier: kFavoritesCellReuseIdentifier)
+       favoritesTableView.rowHeight = UITableView.automaticDimension
+       favoritesTableView.estimatedRowHeight = 118
+       favoritesTableView.dataSource = self
+       favoritesTableView.delegate = self
     }
 }
     
-    
+
 extension FavoritesViewController: UITableViewDataSource {
+   
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 10
     }
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,9 +73,11 @@ extension FavoritesViewController: UITableViewDataSource {
        // cell.viewModel = storage?[indexPath.row]
         
         //cell.viewModel = photosResponse?.photos.photo[indexPath.row]
+           
         return cell
     }
 }
+
 
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

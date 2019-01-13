@@ -15,7 +15,7 @@ class FlickraViewController : UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var presenter : FlickraPresenterInput!
     private let kPhotoTableViewCellNib = UINib(nibName: "PhotoCellView", bundle: nil)
-    private let kPhotoTableViewCellReuseIdentifier = "kPhotoTableViewCellReuseIdentifier"
+     private let kPhotoTableViewCellReuseIdentifier = "kPhotoTableViewCellReuseIdentifier"
     private var storage : [PhotosModel]?
     
     override func viewDidLoad() {

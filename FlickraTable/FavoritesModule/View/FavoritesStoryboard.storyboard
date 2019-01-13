@@ -11,34 +11,34 @@
     </dependencies>
     <scenes>
         <!--Favorites View Controller-->
-        <scene sceneID="VH7-tt-GZH">
+        <scene sceneID="ioj-5k-Pqb">
             <objects>
-                <viewController storyboardIdentifier="kFavoritesViewIdentifier" id="pWN-uk-JiK" customClass="FavoritesViewController" customModule="FlickraTable" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9Pd-Ji-b1b" customClass="FavoritesViewController">
+                <viewController storyboardIdentifier="kFavoritesViewIdentifier" id="u5g-SG-jyc" customClass="FavoritesViewController" customModule="FlickraTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lVU-wF-850">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJD-5h-reg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-Xm-JzZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KJD-5h-reg" firstAttribute="trailing" secondItem="on6-im-bgW" secondAttribute="trailing" id="OTh-Uv-7wm"/>
-                            <constraint firstItem="KJD-5h-reg" firstAttribute="top" secondItem="9Pd-Ji-b1b" secondAttribute="top" id="nKd-ei-5Me"/>
-                            <constraint firstItem="KJD-5h-reg" firstAttribute="bottom" secondItem="on6-im-bgW" secondAttribute="bottom" id="z57-8X-erJ"/>
-                            <constraint firstItem="KJD-5h-reg" firstAttribute="leading" secondItem="on6-im-bgW" secondAttribute="leading" id="zut-Ub-hVh"/>
+                            <constraint firstItem="PHI-UB-6SP" firstAttribute="trailing" secondItem="SI4-Xm-JzZ" secondAttribute="trailing" id="DwS-Dh-ym2"/>
+                            <constraint firstItem="SI4-Xm-JzZ" firstAttribute="leading" secondItem="PHI-UB-6SP" secondAttribute="leading" id="bf9-fg-r5Z"/>
+                            <constraint firstItem="SI4-Xm-JzZ" firstAttribute="top" secondItem="PHI-UB-6SP" secondAttribute="top" id="eQz-ZW-6iC"/>
+                            <constraint firstItem="PHI-UB-6SP" firstAttribute="bottom" secondItem="SI4-Xm-JzZ" secondAttribute="bottom" id="fWo-Cp-R3u"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="on6-im-bgW"/>
-                        <connections>
-                            <outlet property="tableView" destination="KJD-5h-reg" id="dJI-yx-8Jm"/>
-                        </connections>
+                        <viewLayoutGuide key="safeArea" id="PHI-UB-6SP"/>
                     </view>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="SI4-Xm-JzZ" id="4yb-pS-Cwf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ORb-fe-JaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NB3-VC-DWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152.80000000000001" y="150.67466266866569"/>
+            <point key="canvasLocation" x="316" y="-115"/>
         </scene>
     </scenes>
 </document>

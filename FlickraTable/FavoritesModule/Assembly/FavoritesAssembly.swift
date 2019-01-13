@@ -13,9 +13,10 @@ class FavoritesAssembly {
     
     func build() -> (controller: UIViewController, presenter: FavoritesPresenterInput)? {
         let storyboard = UIStoryboard(name: "FavoritesStoryboard", bundle: nil)
+       
         guard let favoritesVC  = storyboard.instantiateViewController(withIdentifier: "kFavoritesViewIdentifier") as? FavoritesViewController else {
             return nil}
-       
+          print ("!!!")
         let presenter = FavoritesPresenter()
         let interactor = FavoritesInteractor()
         

@@ -15,5 +15,4 @@ class PostEntity: Object {
     var url: String?
     var isFavorite: String?
     
-    
 }
