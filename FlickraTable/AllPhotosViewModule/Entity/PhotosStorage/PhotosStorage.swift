@@ -25,12 +25,12 @@ extension PhotosStorage : PhotosStorageInput {
     }
 }
 extension PhotosStorage {
-    func saveData(data: PhotosResponse) {
-        for i in 0..<data.photos.photo.count {
-            let photoStruct = PhotosModel(id: data.photos.photo[i].id, title: data.photos.photo[i].title, url: data.photos.photo[i].url_l, isFavorite: false)
+    func saveData(parsedData: PhotosResponse) {
+        for i in 0..<parsedData.photos.photo.count {
+            let photoStruct = PhotosModel(id: parsedData.photos.photo[i].id, title: parsedData.photos.photo[i].title, url: parsedData.photos.photo[i].url_l, isFavorite: false)
            storage.append(photoStruct)
         }
-        interactor.presentData(storage: storage)
+        interactor.presentData(storage: &storage)
     }
 }
 
@@ -42,7 +42,7 @@ extension PhotosStorage{
         }
     }
     func presentData() {
-        interactor.presentData(storage: storage)
+        interactor.presentData(storage: &storage)
 
     }
 }

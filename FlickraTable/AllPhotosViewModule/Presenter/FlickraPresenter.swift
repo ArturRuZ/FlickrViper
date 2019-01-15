@@ -64,7 +64,7 @@ extension FlickraPresenter{
     func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage) {
         presenterOutputToCoordinator?.photoSelected(dataCell: dataCell, selectedPhoto: selectedPhoto)
     }
-    func updateData(updateData: ViewCellModel){
+    func updateData(updateData: PhotosModel){
         interactor.updateData(updateData: updateData)
     }
     func showFavorites(){

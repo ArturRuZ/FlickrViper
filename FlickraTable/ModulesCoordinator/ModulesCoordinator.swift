@@ -69,7 +69,7 @@ extension ModulesCoordinator : DetailPhotoPresenterOutput {
             
             for i in 0..<presenterArray.count {
                 guard let presenter = presenterArray[i] as? FlickraPresenterInput else {continue}
-                presenter.updateData(updateData: savedData)
+                presenter.updateData(updateData: savedData as! PhotosModel)
             }
         }
     }

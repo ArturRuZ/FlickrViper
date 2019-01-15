@@ -27,10 +27,7 @@ extension FlickraInteractor : FlickraInteractorInput {
     }
     
     func getData() {
-        //isFirstRun ? storageInput.presentData() : downloadData()
         downloadData()
-   //let entites = databse.loadEntites()
-       
     }
     
     var output: FlickraInteractorOutput {
@@ -43,8 +40,18 @@ extension FlickraInteractor : FlickraInteractorInput {
     }
 }
 extension FlickraInteractor : PhotosStorageOutput {
-    func presentData(storage: [PhotosModel]) {
-       interactorOutput.presentData(storage: storage)
+    func presentData(storage: inout [PhotosModel]) {
+       
+        let favoritesList = databse.loadObjectsFromBase()
+        var favoritesObjectId = [String]()
+        for i in 0..<favoritesList.count{
+            favoritesObjectId.append(favoritesList[i].id)
+        }
+        for i in 0..<storage.count{
+            guard favoritesObjectId.firstIndex(of: storage[i].id) != nil else {continue}
+            storage[i].isFavorite = true
+        }
+        interactorOutput.presentData(storage: storage)
     }
 }
 
@@ -52,32 +59,15 @@ extension FlickraInteractor {
     private func downloadData() {
         let url = URL(string: "https://www.flickr.com/services/rest?method=flickr.interestingness.getList&api_key=3988023e15f45c8d4ef5590261b1dc53&per_page=40&page=1&format=json&nojsoncallback=1&extras=url_l&date=2018-09-23")
         internetService.loadData(fromURL: url, parseInto: PhotosResponse.self, success: { (response: PhotosResponse) in
-            self.storageInput.saveData(data: response)
-           /* var postEntity:[PostEntity]=[]
-            for i in 0..<response.photos.photo.count {
-                
-                let entity = PostEntity()
-                 entity.id = response.photos.photo[i].id
-                 entity.title = response.photos.photo[i].title
-                 entity.url = response.photos.photo[i].url_l
-                 entity.isFavorite = "0"
-                
-                 postEntity.append(entity)}
-             self.databse.saveEntites(data: postEntity) */
-            self.isFirstRun = true
+            self.storageInput.saveData(parsedData: response)
         }) { (code) in
             print("Error")
         }
     }
     
-    func updateData(updateData: ViewCellModel) {
+    func updateData(updateData: PhotosModel) {
         storageInput.updateData(updateData:updateData)
-       let entity = PostEntity()
-        entity.id = updateData.id
-        entity.title = updateData.title
-        entity.url = updateData.url
-       if updateData.isFavorite {entity.isFavorite.value = true} else {entity.isFavorite.value = false}
-       self.databse.uopdateObjectsStateInBase(data: entity)
+        self.databse.uopdateObjectsStateInBase(data: updateData)
     }
 }
 

@@ -15,7 +15,7 @@ protocol FlickraPresenterInput: class {
     var interactorInput: FlickraInteractorInput { get set }
     func getData()
     func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage)
-    func updateData(updateData: ViewCellModel)
+    func updateData(updateData: PhotosModel)
     func showFavorites()
 }
 

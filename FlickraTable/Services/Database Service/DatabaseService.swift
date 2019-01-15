@@ -36,9 +36,14 @@ class DatabaseService: DatabaseServiceInput {
         return finalObjectsArray
     }
     
-    func uopdateObjectsStateInBase(data: PostEntity)  {
+    func uopdateObjectsStateInBase(data: PhotosModel)  {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        if  data.isFavorite.value == true {saveObjectToBase(data)} else { removeObjectFromBase(data) }
+        let prepareDateForUpdate = PostEntity()
+        prepareDateForUpdate.id = data.id
+        prepareDateForUpdate.title = data.title
+        prepareDateForUpdate.url = data.url
+        if data.isFavorite {prepareDateForUpdate.isFavorite.value = true} else {prepareDateForUpdate.isFavorite.value = false}
+       if  prepareDateForUpdate.isFavorite.value == true {saveObjectToBase(prepareDateForUpdate)} else { removeObjectFromBase(prepareDateForUpdate) }
     }
     
     private func saveObjectToBase(_ data: PostEntity) {

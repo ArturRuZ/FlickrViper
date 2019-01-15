@@ -10,5 +10,5 @@ import Foundation
 
 protocol DatabaseServiceInput: class{
     func loadObjectsFromBase() -> [PhotosModel]
-    func uopdateObjectsStateInBase(data: PostEntity) 
+    func uopdateObjectsStateInBase(data: PhotosModel) 
 }
