@@ -11,11 +11,12 @@ import Foundation
 
 protocol FavoritesPresenterInput: class {
     var output:  FavoritesPresenterOutput { get set }
-    var viewInput:  FavoritesViewInput { get set }
+    var viewInput:  FavoritesViewDelegate { get set }
     var interactorInput:  FavoritesInteractorInput { get set }
-    func callback()
+    func backButtonPressed()
+    func viewDidLoad()
 }
 
 protocol  FavoritesPresenterOutput: class {
-    func callback()
+    func comeBackPrepare()
 }

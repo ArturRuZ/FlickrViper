@@ -52,8 +52,8 @@ extension FlickraInteractor {
     private func downloadData() {
         let url = URL(string: "https://www.flickr.com/services/rest?method=flickr.interestingness.getList&api_key=3988023e15f45c8d4ef5590261b1dc53&per_page=40&page=1&format=json&nojsoncallback=1&extras=url_l&date=2018-09-23")
         internetService.loadData(fromURL: url, parseInto: PhotosResponse.self, success: { (response: PhotosResponse) in
-            //self.storageInput.saveData(data: response)
-            var postEntity:[PostEntity]=[]
+            self.storageInput.saveData(data: response)
+           /* var postEntity:[PostEntity]=[]
             for i in 0..<response.photos.photo.count {
                 
                 let entity = PostEntity()
@@ -63,7 +63,7 @@ extension FlickraInteractor {
                  entity.isFavorite = "0"
                 
                  postEntity.append(entity)}
-             self.databse.saveEntites(data: postEntity)
+             self.databse.saveEntites(data: postEntity) */
             self.isFirstRun = true
         }) { (code) in
             print("Error")
@@ -72,7 +72,12 @@ extension FlickraInteractor {
     
     func updateData(updateData: ViewCellModel) {
         storageInput.updateData(updateData:updateData)
-        
+       let entity = PostEntity()
+        entity.id = updateData.id
+        entity.title = updateData.title
+        entity.url = updateData.url
+       if updateData.isFavorite {entity.isFavorite.value = true} else {entity.isFavorite.value = false}
+       self.databse.uopdateObjectsStateInBase(data: entity)
     }
 }
 

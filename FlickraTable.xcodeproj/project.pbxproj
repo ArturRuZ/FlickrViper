@@ -22,7 +22,7 @@
 		3445391321D5456800959319 /* FlickraViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445391221D5456800959319 /* FlickraViewProtocol.swift */; };
 		3445391A21D60E2600959319 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445391921D60E2600959319 /* PhotosResponse.swift */; };
 		3457242D21D7840E004A806A /* PhotoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457242C21D7840E004A806A /* PhotoCellView.swift */; };
-		3457243021D7851D004A806A /* PhotoCellViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457242F21D7851D004A806A /* PhotoCellViewProtocol.swift */; };
+		3457243021D7851D004A806A /* ViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457242F21D7851D004A806A /* ViewCellProtocol.swift */; };
 		3457243221D78559004A806A /* PhotoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3457243121D78559004A806A /* PhotoCellView.xib */; };
 		3457243421D792A1004A806A /* PhotosStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243321D792A1004A806A /* PhotosStorage.swift */; };
 		3457243621D7942B004A806A /* PhotosStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457243521D7942B004A806A /* PhotosStorageProtocol.swift */; };
@@ -72,7 +72,7 @@
 		3445391221D5456800959319 /* FlickraViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickraViewProtocol.swift; sourceTree = "<group>"; };
 		3445391921D60E2600959319 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
 		3457242C21D7840E004A806A /* PhotoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellView.swift; sourceTree = "<group>"; };
-		3457242F21D7851D004A806A /* PhotoCellViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewProtocol.swift; sourceTree = "<group>"; };
+		3457242F21D7851D004A806A /* ViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCellProtocol.swift; sourceTree = "<group>"; };
 		3457243121D78559004A806A /* PhotoCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCellView.xib; sourceTree = "<group>"; };
 		3457243321D792A1004A806A /* PhotosStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStorage.swift; sourceTree = "<group>"; };
 		3457243521D7942B004A806A /* PhotosStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStorageProtocol.swift; sourceTree = "<group>"; };
@@ -137,6 +137,7 @@
 		344538E321D539C100959319 /* FlickraTable */ = {
 			isa = PBXGroup;
 			children = (
+				34963BAA21ED12E200E491D0 /* GlobalEntity */,
 				349B530E21E4DD2500EB7BD9 /* Services */,
 				344538F021D539C100959319 /* Info.plist */,
 				3445390021D53B4300959319 /* Resources */,
@@ -235,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				3457242C21D7840E004A806A /* PhotoCellView.swift */,
-				3457242F21D7851D004A806A /* PhotoCellViewProtocol.swift */,
 				3457243121D78559004A806A /* PhotoCellView.xib */,
 			);
 			path = PhotoCell;
@@ -244,7 +244,6 @@
 		3457243721D79442004A806A /* PhotosStorage */ = {
 			isa = PBXGroup;
 			children = (
-				3457243821D8CB20004A806A /* PhotosModel.swift */,
 				3457243321D792A1004A806A /* PhotosStorage.swift */,
 				3457243521D7942B004A806A /* PhotosStorageProtocol.swift */,
 			);
@@ -306,6 +305,14 @@
 				34963BA621EBADE900E491D0 /* FavoritesCellView.swift */,
 			);
 			path = FavoritesCell;
+			sourceTree = "<group>";
+		};
+		34963BAA21ED12E200E491D0 /* GlobalEntity */ = {
+			isa = PBXGroup;
+			children = (
+				3457242F21D7851D004A806A /* ViewCellProtocol.swift */,
+			);
+			path = GlobalEntity;
 			sourceTree = "<group>";
 		};
 		349B530E21E4DD2500EB7BD9 /* Services */ = {
@@ -396,6 +403,7 @@
 		34ED437821E7E66800D635D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3457243821D8CB20004A806A /* PhotosModel.swift */,
 				34ED437921E7E67100D635D6 /* PostEntity.swift */,
 			);
 			path = Models;
@@ -568,7 +576,7 @@
 				348CB87721E8FD8100A018AB /* FavoritesView.swift in Sources */,
 				3457242D21D7840E004A806A /* PhotoCellView.swift in Sources */,
 				3445391321D5456800959319 /* FlickraViewProtocol.swift in Sources */,
-				3457243021D7851D004A806A /* PhotoCellViewProtocol.swift in Sources */,
+				3457243021D7851D004A806A /* ViewCellProtocol.swift in Sources */,
 				348CB87921E8FD9000A018AB /* FavoritesProtocol.swift in Sources */,
 				3445390521D53C6700959319 /* FlickraInteractor.swift in Sources */,
 				3445390D21D53CF100959319 /* FlickraAssembly.swift in Sources */,

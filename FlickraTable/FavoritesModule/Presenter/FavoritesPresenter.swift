@@ -11,8 +11,8 @@ import Foundation
 
 class FavoritesPresenter {
     
-    private weak var presenterOutputToCoordinator : FavoritesPresenterOutput!
-    private weak var view : FavoritesViewInput!
+    private weak var presenterOutput : FavoritesPresenterOutput!
+    private weak var view : FavoritesViewDelegate!
     private var interactor: FavoritesInteractorInput!
     
     deinit{
@@ -24,14 +24,14 @@ extension FavoritesPresenter : FavoritesPresenterInput {
     
     var output: FavoritesPresenterOutput {
         get {
-            return presenterOutputToCoordinator
+            return presenterOutput
         }
         set {
-            presenterOutputToCoordinator = newValue
+            presenterOutput = newValue
         }
     }
     
-    var viewInput: FavoritesViewInput {
+    var viewInput: FavoritesViewDelegate {
         get {
             return view
         }
@@ -53,11 +53,18 @@ extension FavoritesPresenter : FavoritesPresenterInput {
 
 
 extension FavoritesPresenter : FavoritesInteractorOutput {
+    func dataPrepared(data: [PhotosModel]) {
+        view?.showData(favoritesList: data)
+    }
+    
     
 }
 
 extension FavoritesPresenter{
-    func callback() {
-        presenterOutputToCoordinator.callback()
+    func backButtonPressed() {
+        presenterOutput.comeBackPrepare()
+    }
+    func viewDidLoad(){
+        interactor?.prepareData()
     }
 }

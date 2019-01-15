@@ -13,15 +13,14 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var favoritesTableView: UITableView!
     
-  private let kFavoritesCellNib = UINib(nibName: "FavoritesCellView", bundle: nil)
-  private let kFavoritesCellReuseIdentifier = "kFavoritesCellReuseIdentifier"
-  
-    private var presenter : FavoritesPresenterInput!
+    private let kFavoritesCellNib = UINib(nibName: "FavoritesCellView", bundle: nil)
+    private let kFavoritesCellReuseIdentifier = "kFavoritesCellReuseIdentifier"
+    private var favoritesData : [PhotosModel]?
+    private var output : FavoritesPresenterInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpUI()
+        output?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,18 +29,26 @@ class FavoritesViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-       presenter.callback()
+       output.backButtonPressed()
     }
+    deinit{
+        print("deinit FavoritesViewController")}
+    
 }
 
-extension FavoritesViewController : FavoritesViewInput {
+extension FavoritesViewController : FavoritesViewDelegate {
     var presenterInput: FavoritesPresenterInput {
         get {
-            return presenter
+            return output
         }
         set {
-            presenter = newValue
+            output = newValue
         }
+    }
+    func showData(favoritesList: [PhotosModel]){
+        favoritesData = favoritesList
+        
+        setUpUI()
     }
 }
 
@@ -60,7 +67,7 @@ extension FavoritesViewController: UITableViewDataSource {
    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return favoritesData?.count ?? 0
     }
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,15 +76,13 @@ extension FavoritesViewController: UITableViewDataSource {
                                                             return UITableViewCell()
             }
      
-        //cell.presenter = self.presenter
-       // cell.viewModel = storage?[indexPath.row]
+     
         
-        //cell.viewModel = photosResponse?.photos.photo[indexPath.row]
-           
+        cell.viewModel = favoritesData?[indexPath.row]
+   
         return cell
     }
 }
-
 
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

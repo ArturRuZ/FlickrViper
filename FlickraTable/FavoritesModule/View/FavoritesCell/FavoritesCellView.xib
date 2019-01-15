@@ -19,9 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zn4-el-2HR">
-                        <rect key="frame" x="145" y="5" width="220" height="107.5"/>
+                        <rect key="frame" x="255" y="5" width="110" height="107.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="220" id="RVZ-7y-fnv"/>
+                            <constraint firstAttribute="width" constant="110" id="RVZ-7y-fnv"/>
+                            <constraint firstAttribute="height" constant="107.5" id="uzH-Ph-WF4"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUX-X6-nqz">
@@ -35,7 +36,6 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="zn4-el-2HR" secondAttribute="bottom" constant="5" id="3iz-tS-s73"/>
                     <constraint firstItem="mUX-X6-nqz" firstAttribute="leading" secondItem="rgy-vK-Ovg" secondAttribute="leading" constant="49" id="hLV-ne-ntZ"/>
                     <constraint firstItem="zn4-el-2HR" firstAttribute="centerY" secondItem="mUX-X6-nqz" secondAttribute="centerY" id="nMY-GS-kew"/>
                     <constraint firstItem="zn4-el-2HR" firstAttribute="centerY" secondItem="rgy-vK-Ovg" secondAttribute="centerY" id="oBi-pW-tUa"/>

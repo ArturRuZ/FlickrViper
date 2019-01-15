@@ -66,7 +66,7 @@ extension ModulesCoordinator : DetailPhotoPresenterOutput {
         for i in 0..<presenterArray.count {
             guard presenterArray[i] is DetailPhotoPresenterInput else {continue}
             presenterArray.remove(at: i)
-            print (presenterArray.count)
+            
             for i in 0..<presenterArray.count {
                 guard let presenter = presenterArray[i] as? FlickraPresenterInput else {continue}
                 presenter.updateData(updateData: savedData)
@@ -91,7 +91,7 @@ extension ModulesCoordinator : RoutingDetailPhotoView {
 
 extension ModulesCoordinator : FavoritesPresenterOutput {
     
-    func callback(){
+    func comeBackPrepare(){
         for i in 0..<presenterArray.count {
             guard presenterArray[i] is FavoritesPresenterInput else {continue}
             presenterArray.remove(at: i)
@@ -102,7 +102,7 @@ extension ModulesCoordinator : FavoritesPresenterOutput {
 extension ModulesCoordinator : RoutingFavoritesView {
     func presentFavoritesView() {
         let favoritesView = FavoritesAssembly()
-        guard let favorites = favoritesView.build() else { return}
+        guard let favorites = favoritesView.build(database: database) else { return}
         favorites.presenter.output = self
         presenterArray.append(favorites.presenter)
          print(rootNavigationVC.viewControllers)

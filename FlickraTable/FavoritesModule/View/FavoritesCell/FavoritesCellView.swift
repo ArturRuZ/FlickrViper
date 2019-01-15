@@ -8,18 +8,25 @@
 
 import Foundation
 import UIKit
-
+import Kingfisher
 
 class FavoritesCellView: UITableViewCell{
     
-
+    
     @IBOutlet weak var photo: UIImageView!
     
     @IBOutlet weak var photoTitle: UILabel!
     
-    var title: String? {
+     var viewModel: ViewCellModel? {
         didSet {
-    photoTitle.text = title
-}
-}
+            guard let viewModel = viewModel else { return }
+            photoTitle.text = viewModel.title
+            print(viewModel.title)
+            photo.kf.indicatorType = .activity
+            let url = URL(string : viewModel.url)
+            let cacheKey = viewModel.id
+            let resource = ImageResource(downloadURL: url! , cacheKey: cacheKey)
+            photo.kf.setImage(with: resource)
+        }
+    }
 }

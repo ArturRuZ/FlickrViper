@@ -9,9 +9,9 @@
 import Foundation
 
 
-protocol FavoritesViewInput: class {
+protocol FavoritesViewDelegate: class {
     var presenterInput: FavoritesPresenterInput { get set }
-    
+    func showData(favoritesList: [PhotosModel])
     
 }
 

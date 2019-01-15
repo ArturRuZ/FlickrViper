@@ -11,10 +11,11 @@ import Foundation
 
 protocol  FavoritesInteractorInput: class {
     var output: FavoritesInteractorOutput { get set }
+    func prepareData()
     
     
 }
 
 protocol FavoritesInteractorOutput: class {
-   
+    func dataPrepared(data: [PhotosModel])
 }

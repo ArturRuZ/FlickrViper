@@ -10,9 +10,21 @@ import Foundation
 import RealmSwift
 
 class PostEntity: Object {
-    var id: String?
-    var  title: String?
-    var url: String?
-    var isFavorite: String?
+ @objc dynamic var id: String?
+ @objc dynamic var  title: String?
+  @objc dynamic var url: String?
+   var isFavorite = RealmOptional<Bool>()
     
 }
+/*
+extension PostEntity: ViewCellModel {
+    var isFavorite: Bool {
+        get {
+            if isInFavorites.value == nil {isInFavorites.value = false}
+            return isInFavorites.value!
+        }
+        set {
+            isInFavorites.value = newValue
+        }
+}
+*/

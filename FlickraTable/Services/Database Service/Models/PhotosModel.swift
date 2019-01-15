@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 
 struct PhotosModel: ViewCellModel {
-   
+    let id : String
     let title : String
     let url : String
-    let id : String
     var isFavorite : Bool
 }
 
