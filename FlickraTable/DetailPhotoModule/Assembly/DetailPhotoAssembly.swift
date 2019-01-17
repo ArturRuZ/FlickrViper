@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class DetailPhotoAssembly {
     
     func build() -> (controller: UIViewController, presenter: DetailPhotoPresenterInput)? {
@@ -20,12 +21,12 @@ class DetailPhotoAssembly {
         let interactor = DetailPhotoInteractor()
         
         
-        detailPhotoVC.presenterInput = presenter
+        detailPhotoVC.output = presenter
         presenter.interactorInput = interactor
         presenter.viewInput = detailPhotoVC
         interactor.output = presenter
         
-  
+        
         return (controller: detailPhotoVC, presenter: presenter)
     }
 }

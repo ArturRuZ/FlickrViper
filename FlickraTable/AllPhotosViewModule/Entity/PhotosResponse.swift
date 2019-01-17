@@ -10,7 +10,6 @@ import Foundation
 
 struct PhotosResponse : Codable {
     var photos : Photos
-
 }
 
 struct Photos : Codable {
@@ -18,24 +17,24 @@ struct Photos : Codable {
 }
 
 struct Photo : Codable {
-   var id : String
+    var id : String
     var title : String
     var url_l : String
 }
 
 
 /*
-    var id: String
-    var owner: String
-    var secret : String
-    var server: String
-    var farm: Int
-    var title: String
-    var ispublic: Int
-    var isfriend: Int
-    var isfamily: Int
-    var url_l: String
-    var height_l: String
-    var width_l: String
+ var id: String
+ var owner: String
+ var secret : String
+ var server: String
+ var farm: Int
+ var title: String
+ var ispublic: Int
+ var isfriend: Int
+ var isfamily: Int
+ var url_l: String
+ var height_l: String
+ var width_l: String
  */
 

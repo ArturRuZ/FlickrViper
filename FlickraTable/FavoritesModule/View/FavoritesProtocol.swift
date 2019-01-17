@@ -12,8 +12,8 @@ import Foundation
 protocol FavoritesViewDelegate: class {
     var presenterInput: FavoritesPresenterInput { get set }
     func showData(favoritesList: [PhotosModel])
-    
 }
+
 
 protocol RoutingFavoritesView: class {
     func presentFavoritesView()

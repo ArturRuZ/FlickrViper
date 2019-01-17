@@ -14,8 +14,6 @@ protocol  FlickraInteractorInput: class {
     var inputStorage : PhotosStorageInput { get set }
     func getData()
     func updateData(updateData: PhotosModel)
-    
-    
 }
 
 protocol FlickraInteractorOutput: class {

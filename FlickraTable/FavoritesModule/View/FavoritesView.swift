@@ -27,14 +27,16 @@ class FavoritesViewController: UIViewController {
         super.viewWillAppear(true)
         self.title = "Favorites"
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-       output.backButtonPressed()
+        output.backButtonPressed()
     }
+    
     deinit{
         print("deinit FavoritesViewController")}
-    
 }
+
 
 extension FavoritesViewController : FavoritesViewDelegate {
     var presenterInput: FavoritesPresenterInput {
@@ -45,44 +47,40 @@ extension FavoritesViewController : FavoritesViewDelegate {
             output = newValue
         }
     }
+    
     func showData(favoritesList: [PhotosModel]){
         favoritesData = favoritesList
-        
         setUpUI()
     }
 }
 
+
 extension FavoritesViewController {
     private func setUpUI() {
-       favoritesTableView.register(kFavoritesCellNib, forCellReuseIdentifier: kFavoritesCellReuseIdentifier)
-       favoritesTableView.rowHeight = UITableView.automaticDimension
-       favoritesTableView.estimatedRowHeight = 118
-       favoritesTableView.dataSource = self
-       favoritesTableView.delegate = self
+        favoritesTableView.register(kFavoritesCellNib, forCellReuseIdentifier: kFavoritesCellReuseIdentifier)
+        favoritesTableView.rowHeight = UITableView.automaticDimension
+        favoritesTableView.estimatedRowHeight = 118
+        favoritesTableView.dataSource = self
+        favoritesTableView.delegate = self
     }
 }
-    
+
 
 extension FavoritesViewController: UITableViewDataSource {
-   
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoritesData?.count ?? 0
     }
     
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: kFavoritesCellReuseIdentifier,
-                                                           for: indexPath) as? FavoritesCellView else {
-                                                            return UITableViewCell()
-            }
-     
-     
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: kFavoritesCellReuseIdentifier,
+                                                       for: indexPath) as? FavoritesCellView else {
+                                                        return UITableViewCell()
+        }
         cell.viewModel = favoritesData?[indexPath.row]
-   
         return cell
     }
 }
+
 
 extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

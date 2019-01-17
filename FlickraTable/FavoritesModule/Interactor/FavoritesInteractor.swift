@@ -18,6 +18,7 @@ class FavoritesInteractor {
     
 }
 
+
 extension FavoritesInteractor : FavoritesInteractorInput{
     var output: FavoritesInteractorOutput {
         get {
@@ -29,16 +30,11 @@ extension FavoritesInteractor : FavoritesInteractorInput{
     }
 }
 
+
 extension FavoritesInteractor{
     func prepareData(){
-        
         guard let preparedData = databse?.loadObjectsFromBase() else {return}
-          interactorOutput.dataPrepared(data: preparedData)
-        }
-         
-    
-        
-      
-        
+        interactorOutput.dataPrepared(data: preparedData)
     }
+}
 

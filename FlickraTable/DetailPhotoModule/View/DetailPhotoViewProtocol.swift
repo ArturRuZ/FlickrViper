@@ -9,10 +9,14 @@
 import Foundation
 import UIKit
 
-protocol DetailPhotoViewInput: class {
-    var presenterInput: DetailPhotoPresenterInput { get set }
-    func presentPhoto(data: ViewCellModel, photo: UIImage)
-    
+protocol DetailPhotoViewDelegate: class {
+    var output: DetailPhotoViewOutput { get set }
+    func presentPhoto(photoData: PhotosModel)
+}
+
+protocol DetailPhotoViewOutput: class {
+   func viewDidLoad()
+   func backButtonPressed(loadedData: PhotosModel)
 }
 
 protocol RoutingDetailPhotoView: class {

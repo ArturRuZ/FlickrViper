@@ -11,8 +11,8 @@ import UIKit
 
 class DetailPhotoPresenter {
     
-    private weak var presenterOutputToCoordinator : DetailPhotoPresenterOutput!
-    private weak var view : DetailPhotoViewInput!
+    private weak var presenterOutput : DetailPhotoPresenterOutput!
+    private weak var view : DetailPhotoViewDelegate!
     private var interactor: DetailPhotoInteractorInput!
     
     deinit{
@@ -20,18 +20,20 @@ class DetailPhotoPresenter {
     
 }
 
+
 extension DetailPhotoPresenter : DetailPhotoPresenterInput {
+    
     
     var output: DetailPhotoPresenterOutput {
         get {
-            return presenterOutputToCoordinator
+            return presenterOutput
         }
         set {
-            presenterOutputToCoordinator = newValue
+            presenterOutput = newValue
         }
     }
     
-    var viewInput: DetailPhotoViewInput {
+    var viewInput: DetailPhotoViewDelegate {
         get {
             return view
         }
@@ -49,23 +51,28 @@ extension DetailPhotoPresenter : DetailPhotoPresenterInput {
             interactor = newValue
         }
     }
-    
-    func getData() {
-        interactor.getData()
+}
+
+
+extension DetailPhotoPresenter : DetailPhotoInteractorOutput {
+    func presentPhotoData(photoData: PhotosModel) {
+        view.presentPhoto(photoData: photoData)
     }
 }
 
-extension DetailPhotoPresenter : DetailPhotoInteractorOutput {
-    func presentData(data: ViewCellModel, photo: UIImage) {
-        view.presentPhoto(data: data, photo: photo)
-    }
-    
-}
+
 extension DetailPhotoPresenter{
-    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage) {
-        interactor.prepareFototoShow(dataCell: dataCell, selectedPhoto: selectedPhoto)
+    func prepareFotoToShow(selectedPhoto: PhotosModel) {
+        interactor.prepareFototoShow(selectedPhoto: selectedPhoto)
     }
-    func saveChanges(savedData: ViewCellModel){
-        presenterOutputToCoordinator.saveChanges(savedData: savedData)
+}
+
+
+extension DetailPhotoPresenter : DetailPhotoViewOutput {
+    func viewDidLoad() {
+        interactor.getPhotoData()
+    }
+    func backButtonPressed(loadedData: PhotosModel) {
+        presenterOutput.sentLoadedData(loadedData: loadedData)
     }
 }

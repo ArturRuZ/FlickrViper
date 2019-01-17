@@ -26,10 +26,6 @@ extension FlickraInteractor : FlickraInteractorInput {
         }
     }
     
-    func getData() {
-        downloadData()
-    }
-    
     var output: FlickraInteractorOutput {
         get {
             return interactorOutput
@@ -38,10 +34,16 @@ extension FlickraInteractor : FlickraInteractorInput {
             interactorOutput = newValue
         }
     }
+    
+    func getData() {
+        downloadData()
+    }
+    
 }
+
+
 extension FlickraInteractor : PhotosStorageOutput {
     func presentData(storage: inout [PhotosModel]) {
-       
         let favoritesList = databse.loadObjectsFromBase()
         var favoritesObjectId = [String]()
         for i in 0..<favoritesList.count{
@@ -54,6 +56,7 @@ extension FlickraInteractor : PhotosStorageOutput {
         interactorOutput.presentData(storage: storage)
     }
 }
+
 
 extension FlickraInteractor {
     private func downloadData() {

@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
+
 protocol  DetailPhotoInteractorInput: class {
     var output: DetailPhotoInteractorOutput { get set }
-    func getData()
-    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage)
-    
+    func getPhotoData()
+    func prepareFototoShow(selectedPhoto: PhotosModel)
 }
 
+
 protocol DetailPhotoInteractorOutput: class {
-    func presentData(data: ViewCellModel, photo: UIImage)
+    func presentPhotoData(photoData: PhotosModel)
 }

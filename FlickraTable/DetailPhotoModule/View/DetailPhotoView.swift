@@ -8,61 +8,68 @@
 
 import Foundation
 import UIKit
+import Kingfisher
+
 
 class DetailPhotoView: UIViewController {
-    
     
     @IBOutlet weak var favoritesIcon: UIButton!
     @IBOutlet weak var detailPhotoTitle: UILabel!
     @IBOutlet weak var detailPhotoImageView: UIImageView!
     
-    private var savedData: ViewCellModel?
-    private var presenter : DetailPhotoPresenterInput!
+    private var photoData: PhotosModel?
+    private var viewOutput : DetailPhotoViewOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getData()
+        output.viewDidLoad()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        presenter.saveChanges(savedData: savedData!)
+        if photoData != nil{
+            viewOutput.backButtonPressed(loadedData: photoData!)}
     }
-    
     
     @IBAction func favoritesButton(_ sender: UIButton) {
-        savedData!.isFavorite = !savedData!.isFavorite
-        
+        photoData!.isFavorite = !photoData!.isFavorite
         updatefavoriteImage()
     }
-    
-    
-    
+
     deinit{
         print("deinit DetailPhotoView")}
 }
 
-extension DetailPhotoView : DetailPhotoViewInput {
-    var presenterInput: DetailPhotoPresenterInput {
+
+extension DetailPhotoView : DetailPhotoViewDelegate {
+    var output: DetailPhotoViewOutput {
         get {
-            return presenter
+            return viewOutput
         }
         set {
-            presenter = newValue
+            viewOutput = newValue
         }
+    }
+    
+    func presentPhoto(photoData: PhotosModel) {
+        self.photoData = photoData
+        detailPhotoTitle.text = photoData.title
+        updatefavoriteImage()
+        detailPhotoImageView.kf.indicatorType = .activity
+        let url = URL(string : photoData.url)
+        let cacheKey = photoData.id
+        let resource = ImageResource(downloadURL: url! , cacheKey: cacheKey)
+        detailPhotoImageView.kf.setImage(with: resource)
     }
 }
 
+
 extension DetailPhotoView {
-    func presentPhoto(data: ViewCellModel, photo: UIImage){
-        detailPhotoImageView.image = photo
-        detailPhotoTitle.text = data.title
-        self.savedData = data
-        updatefavoriteImage()
-    }
-    
     func updatefavoriteImage(){
         let favoriteImage = UIImage(named: "baseline_favorite_black_36pt.png")
         let unfavoriteImage = UIImage(named: "baseline_favorite_border_black_36pt")
-        savedData!.isFavorite ? favoritesIcon.setImage(favoriteImage, for: .normal) : favoritesIcon.setImage(unfavoriteImage, for: .normal)
+        if  photoData != nil{
+            photoData!.isFavorite ? favoritesIcon.setImage(favoriteImage, for: .normal) : favoritesIcon.setImage(unfavoriteImage, for: .normal)
+        }
     }
 }

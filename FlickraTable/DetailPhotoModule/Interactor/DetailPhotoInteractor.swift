@@ -11,23 +11,15 @@ import UIKit
 
 class DetailPhotoInteractor{
     private weak var interactorOutput : DetailPhotoInteractorOutput!
-    private var photo: UIImage?
-    private var data: ViewCellModel?
+    private var photoData: PhotosModel?
     
     deinit{
         print("deinit DetailPhotoInteractor")}
     
 }
 
+
 extension DetailPhotoInteractor : DetailPhotoInteractorInput{
-    
-    func getData() {
-        
-        guard let photo = self.photo else {return}
-        guard let data = self.data else {return}
-        interactorOutput?.presentData(data: data, photo: photo)
-    }
-    
     var output: DetailPhotoInteractorOutput {
         get {
             return interactorOutput
@@ -36,11 +28,16 @@ extension DetailPhotoInteractor : DetailPhotoInteractorInput{
             interactorOutput = newValue
         }
     }
+    
+    func getPhotoData() {
+        guard let photoData = self.photoData else {return}
+        interactorOutput?.presentPhotoData(photoData: photoData)
+    }
 }
 
+
 extension DetailPhotoInteractor {
-    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage) {
-        self.photo = selectedPhoto
-        self.data = dataCell
+    func prepareFototoShow(selectedPhoto: PhotosModel) {
+        self.photoData = selectedPhoto
     }
 }

@@ -11,11 +11,9 @@ import UIKit
 
 class FlickraPresenter {
     
-    private weak var presenterOutputToCoordinator : FlickraPresenterOutput!
-    private weak var view : FlickraViewtViewInput!
+    private weak var presenterOutput : FlickraPresenterOutput!
+    private weak var view : FlickraViewtViewDelegate!
     private var interactor: FlickraInteractorInput!
-    
-    
     
 }
 
@@ -23,14 +21,14 @@ extension FlickraPresenter : FlickraPresenterInput {
     
     var output: FlickraPresenterOutput {
         get {
-            return presenterOutputToCoordinator
+            return presenterOutput
         }
         set {
-            presenterOutputToCoordinator = newValue
+            presenterOutput = newValue
         }
     }
     
-    var viewInput: FlickraViewtViewInput {
+    var viewInput: FlickraViewtViewDelegate {
         get {
             return view
         }
@@ -48,27 +46,33 @@ extension FlickraPresenter : FlickraPresenterInput {
             interactor = newValue
         }
     }
-    
-    func getData() {
-        interactorInput.getData()
-    }
 }
+
 
 extension FlickraPresenter : FlickraInteractorOutput {
     func presentData(storage : [PhotosModel]){
-        view.presentData(storage: storage)
+        view.presentData(photosDataForView : storage)
     }
-    
 }
-extension FlickraPresenter{
-    func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage) {
-        presenterOutputToCoordinator?.photoSelected(dataCell: dataCell, selectedPhoto: selectedPhoto)
+
+
+extension FlickraPresenter: FlickraViewOutput {
+    func viewDidLoad() {
+        interactorInput.getData()
     }
+    func  rowSelected(selectedPhoto: PhotosModel) {
+        presenterOutput?.photoSelected(selectedPhoto: selectedPhoto)
+    }
+}
+
+
+extension FlickraPresenter{
+    
     func updateData(updateData: PhotosModel){
         interactor.updateData(updateData: updateData)
     }
-    func showFavorites(){
-        presenterOutputToCoordinator.showFavorites()
+    func favoritesButtonPressed(){
+        presenterOutput.showFavorites()
     }
 }
 

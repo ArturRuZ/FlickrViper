@@ -14,14 +14,14 @@ class Application {
     private let modulesCoordinator: ModulesCoordinator
     
     init() {
-        modulesCoordinator = ModulesCoordinator(internetService: InternetService(),database: DatabaseService(), rootNavigationVC: UINavigationController())
+        modulesCoordinator = ModulesCoordinator(internetService: InternetService(),database: DatabaseService())
     }
 }
 
 // MARK: - Initialization
 
 extension Application {
-    func startApp() -> UIViewController {
+    func rootViewController() -> UIViewController {
         return modulesCoordinator.rootModuleController()
     }
 }

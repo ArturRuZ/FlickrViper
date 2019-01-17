@@ -11,16 +11,13 @@ import UIKit
 
 protocol DetailPhotoPresenterInput: class {
     var output:  DetailPhotoPresenterOutput { get set }
-    var viewInput:  DetailPhotoViewInput { get set }
+    var viewInput:  DetailPhotoViewDelegate { get set }
     var interactorInput:  DetailPhotoInteractorInput { get set }
-    func getData()
-    func prepareFototoShow(dataCell: ViewCellModel, selectedPhoto: UIImage)
-    func saveChanges(savedData: ViewCellModel)
-    
+    func prepareFotoToShow(selectedPhoto: PhotosModel) 
 }
 
 protocol  DetailPhotoPresenterOutput: class {
-    func saveChanges(savedData: ViewCellModel)
+    func sentLoadedData(loadedData: PhotosModel)
 }
 
 

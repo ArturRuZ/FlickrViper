@@ -20,8 +20,8 @@ class FavoritesPresenter {
     
 }
 
+
 extension FavoritesPresenter : FavoritesPresenterInput {
-    
     var output: FavoritesPresenterOutput {
         get {
             return presenterOutput
@@ -38,7 +38,6 @@ extension FavoritesPresenter : FavoritesPresenterInput {
         set {
             view = newValue
         }
-        
     }
     
     var interactorInput: FavoritesInteractorInput {
@@ -56,8 +55,6 @@ extension FavoritesPresenter : FavoritesInteractorOutput {
     func dataPrepared(data: [PhotosModel]) {
         view?.showData(favoritesList: data)
     }
-    
-    
 }
 
 extension FavoritesPresenter{

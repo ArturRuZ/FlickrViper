@@ -11,7 +11,7 @@ import UIKit
 
 class ModulesCoordinator {
     
-    private var rootNavigationVC : UINavigationController
+    private let rootNavigationVC = UINavigationController()
     private let internetService: InternetServiceInput
     private let database: DatabaseServiceInput
     private var presenterArray : [Any] = []
@@ -23,21 +23,20 @@ class ModulesCoordinator {
     }
     
     
-    init(internetService: InternetServiceInput, database: DatabaseServiceInput, rootNavigationVC: UINavigationController) {
+    init(internetService: InternetServiceInput, database: DatabaseServiceInput) {
         self.internetService = internetService
-        self.rootNavigationVC = rootNavigationVC
         self.database = database
     }
 }
 
 
 extension ModulesCoordinator : FlickraPresenterOutput {
-    func photoSelected(dataCell: ViewCellModel, selectedPhoto: UIImage) {
+    func photoSelected(selectedPhoto: PhotosModel) {
         presentDetailPhotoView()
 
         for i in 0..<presenterArray.count {
             guard let presenter = presenterArray[i] as? DetailPhotoPresenterInput else {continue}
-            presenter.prepareFototoShow(dataCell: dataCell, selectedPhoto: selectedPhoto)
+           presenter.prepareFotoToShow(selectedPhoto: selectedPhoto)
         }   
     }
     func showFavorites(){
@@ -62,14 +61,14 @@ extension ModulesCoordinator : RoutingFlickraView {
 }
 
 extension ModulesCoordinator : DetailPhotoPresenterOutput {
-    func saveChanges(savedData: ViewCellModel) {
+    func sentLoadedData(loadedData: PhotosModel) {
         for i in 0..<presenterArray.count {
             guard presenterArray[i] is DetailPhotoPresenterInput else {continue}
             presenterArray.remove(at: i)
             
             for i in 0..<presenterArray.count {
                 guard let presenter = presenterArray[i] as? FlickraPresenterInput else {continue}
-                presenter.updateData(updateData: savedData as! PhotosModel)
+                presenter.updateData(updateData: loadedData)
             }
         }
     }

@@ -9,13 +9,18 @@
 import Foundation
 
 
-protocol FlickraViewtViewInput: class {
-    var presenterInput: FlickraPresenterInput { get set }
-    func presentData(storage : [PhotosModel])
-    
+protocol FlickraViewtViewDelegate: class {
+    var output: FlickraViewOutput{ get set }
+    func presentData(photosDataForView  : [PhotosModel])
 }
 
 protocol RoutingFlickraView: class {
     func presentFlickraView()
     func dismissFlickraView()
+}
+
+protocol FlickraViewOutput: class {
+    func viewDidLoad()
+    func favoritesButtonPressed()
+    func rowSelected(selectedPhoto: PhotosModel)
 }

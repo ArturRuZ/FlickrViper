@@ -17,6 +17,7 @@ protocol FavoritesPresenterInput: class {
     func viewDidLoad()
 }
 
+
 protocol  FavoritesPresenterOutput: class {
     func comeBackPrepare()
 }

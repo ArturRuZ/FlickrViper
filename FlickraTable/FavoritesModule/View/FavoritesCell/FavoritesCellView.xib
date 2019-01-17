@@ -26,9 +26,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUX-X6-nqz">
-                        <rect key="frame" x="49" y="48.5" width="42" height="21"/>
+                        <rect key="frame" x="49" y="48.5" width="42" height="20.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="NrR-he-IAD"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="170" id="ebh-Tl-VpI"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -48,7 +48,7 @@
                 <outlet property="photo" destination="zn4-el-2HR" id="P40-Ws-pbB"/>
                 <outlet property="photoTitle" destination="mUX-X6-nqz" id="yxu-vu-nsW"/>
             </connections>
-            <point key="canvasLocation" x="-31.199999999999999" y="30.134932533733135"/>
+            <point key="canvasLocation" x="-31.199999999999999" y="29.685157421289357"/>
         </tableViewCell>
     </objects>
 </document>
