@@ -38,21 +38,21 @@ class ControllerPackageBuilder: ControllerPackageBuilderProtocol {
 }
 
 extension ControllerPackageBuilder {
-    private func createFlickraController()->(ControllerPackage?){
+    private func createFlickraController()->(ControllerPackageProtocol?){
         let flickraAssembly = FlickraAssembly()
         guard let flickra = flickraAssembly.build(internetService: internetService, database: database) else {return nil}
         flickra.presenter.output = modulesCoordinator
         return  ControllerPackage(controller: flickra.controller, presenter: flickra.presenter)
     }
     
-    private func createDetailPhotoController()-> (ControllerPackage?){
+    private func createDetailPhotoController()-> (ControllerPackageProtocol?){
         let detailPhotoView = DetailPhotoAssembly()
         guard let detailPhoto = detailPhotoView.build() else {return nil}
         detailPhoto.presenter.output = modulesCoordinator
         return ControllerPackage(controller: detailPhoto.controller, presenter: detailPhoto.presenter)
     }
     
-    private func createFavoritesController()-> (ControllerPackage?){
+    private func createFavoritesController()-> (ControllerPackageProtocol?){
         let favoritesView = FavoritesAssembly()
         guard let favorites = favoritesView.build(database: database)else {return nil}
         favorites.presenter.output = modulesCoordinator
