@@ -9,14 +9,13 @@
 import Foundation
 
 
-protocol FlickraViewtViewDelegate: class {
+protocol FlickraViewInput: class {
     var output: FlickraViewOutput{ get set }
     func presentData(photosDataForView  : [PhotosModel])
 }
 
 protocol RoutingFlickraView: class {
     func presentFlickraView()
-    func dismissFlickraView()
 }
 
 protocol FlickraViewOutput: class {

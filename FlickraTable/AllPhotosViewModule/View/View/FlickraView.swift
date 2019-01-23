@@ -18,6 +18,8 @@ class FlickraViewController : UIViewController {
     private let kPhotoTableViewCellReuseIdentifier = "kPhotoTableViewCellReuseIdentifier"
     private var photosDataForView : [PhotosModel]?
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad FlickraViewController")
@@ -76,7 +78,7 @@ extension FlickraViewController: UITableViewDelegate {
 }
 
 
-extension FlickraViewController : FlickraViewtViewDelegate {
+extension FlickraViewController : FlickraViewInput {
     var output: FlickraViewOutput {
         get {
             return viewOutput

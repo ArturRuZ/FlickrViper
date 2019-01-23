@@ -14,7 +14,7 @@ class DetailPhotoAssembly {
     
     func build() -> (controller: UIViewController, presenter: DetailPhotoPresenterInput)? {
         let storyboard = UIStoryboard(name: "DetailPhotoViewStoryboard", bundle: nil)
-        guard let detailPhotoVC  = storyboard.instantiateViewController(withIdentifier: "kDetailPhotoIdentifier") as? DetailPhotoView else {
+        guard let detailPhotoVC  = storyboard.instantiateViewController(withIdentifier: "kDetailPhotoIdentifier") as? DetailPhotoViewController else {
             return nil}
         
         let presenter = DetailPhotoPresenter()

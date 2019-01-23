@@ -17,5 +17,4 @@ protocol FavoritesViewDelegate: class {
 
 protocol RoutingFavoritesView: class {
     func presentFavoritesView()
-    func dismissFavoritesView()
 }

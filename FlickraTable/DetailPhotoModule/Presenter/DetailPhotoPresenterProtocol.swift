@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 protocol DetailPhotoPresenterInput: class {
-    var output:  DetailPhotoPresenterOutput { get set }
+    var output:  DetailPhotoPresenterDelegate { get set }
     var viewInput:  DetailPhotoViewDelegate { get set }
     var interactorInput:  DetailPhotoInteractorInput { get set }
     func prepareFotoToShow(selectedPhoto: PhotosModel) 
 }
 
-protocol  DetailPhotoPresenterOutput: class {
+protocol  DetailPhotoPresenterDelegate: class {
     func sentLoadedData(loadedData: PhotosModel)
 }
 

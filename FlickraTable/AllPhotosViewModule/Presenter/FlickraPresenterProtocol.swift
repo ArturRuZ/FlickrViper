@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 protocol FlickraPresenterInput: class {
-    var output: FlickraPresenterOutput { get set }
-    var viewInput: FlickraViewtViewDelegate { get set }
+    var output: FlickraPresenterDelegate { get set }
+    var viewInput: FlickraViewInput { get set }
     var interactorInput: FlickraInteractorInput { get set }
     func viewDidLoad()
     func updateData(updateData: PhotosModel)
 }
 
-protocol FlickraPresenterOutput: class {
+protocol FlickraPresenterDelegate: class {
     func photoSelected(selectedPhoto: PhotosModel)
     func showFavorites()
 }

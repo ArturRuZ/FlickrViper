@@ -8,106 +8,83 @@
 
 import UIKit
 
-
 class ModulesCoordinator {
     
     private let rootNavigationVC = UINavigationController()
-    private let internetService: InternetServiceInput
-    private let database: DatabaseServiceInput
+    lazy private var controllerPackageBuilder: ControllerPackageBuilderProtocol = ControllerPackageBuilder(modulesCoordinator: self)
     private var presenterArray : [Any] = []
     
     func rootModuleController() -> UIViewController {
         presentFlickraView()
         return rootNavigationVC
-        
     }
     
+    private func removeFromPresenterArray<T>(_ : T.Type){
+        for i in 0..<presenterArray.count {
+            guard presenterArray[i] is (T) else {continue}
+            presenterArray.remove(at: i)
+        }
+    }
     
-    init(internetService: InternetServiceInput, database: DatabaseServiceInput) {
-        self.internetService = internetService
-        self.database = database
+    private func findPresenter<T>(_: T.Type) -> (T?){
+        var presenter:(T)?
+        for i in 0..<presenterArray.count {
+            guard let find = presenterArray[i] as? (T) else { continue}
+            presenter = find
+        }
+        return presenter
+    }
+    
+    private func presentController<T>(type: T.Type){
+        guard let controllerPackage = controllerPackageBuilder.createPackage(type: type) else {return}
+        presenterArray.append(controllerPackage.presenter)
+        rootNavigationVC.pushViewController(controllerPackage.controller, animated: true)
     }
 }
 
+//MARK: - Impementation delegate protocols
 
-extension ModulesCoordinator : FlickraPresenterOutput {
+extension ModulesCoordinator : FlickraPresenterDelegate {
     func photoSelected(selectedPhoto: PhotosModel) {
         presentDetailPhotoView()
-
-        for i in 0..<presenterArray.count {
-            guard let presenter = presenterArray[i] as? DetailPhotoPresenterInput else {continue}
-           presenter.prepareFotoToShow(selectedPhoto: selectedPhoto)
-        }   
+        guard let presenter =  findPresenter(DetailPhotoPresenterInput.self) else {return}
+        presenter.prepareFotoToShow(selectedPhoto: selectedPhoto)
     }
     func showFavorites(){
         presentFavoritesView()
-        for i in 0..<presenterArray.count {
-            guard let presenter = presenterArray[i] as? FavoritesPresenterInput else {continue}
-        }
     }
 }
+
+extension ModulesCoordinator : DetailPhotoPresenterDelegate {
+    func sentLoadedData(loadedData: PhotosModel) {
+        removeFromPresenterArray(DetailPhotoPresenterInput.self)
+        guard let presenter = findPresenter(FlickraPresenterInput.self) else {return}
+        presenter.updateData(updateData: loadedData)
+    }
+}
+
+extension ModulesCoordinator : FavoritesPresenterDelegate {
+    func comeBackPrepare(){
+        removeFromPresenterArray(FavoritesPresenterInput.self)
+    }
+}
+
+//MARK: - Impementation routing protocols
 
 extension ModulesCoordinator : RoutingFlickraView {
     func presentFlickraView() {
-        let flickraAssembly = FlickraAssembly()
-        guard let flickra = flickraAssembly.build(internetService: internetService, database: database) else { return}
-        flickra.presenter.output = self
-        presenterArray.append(flickra.presenter)
-        rootNavigationVC.pushViewController(flickra.controller, animated: true)
-    }
-    
-    func dismissFlickraView() {
-    }
-}
-
-extension ModulesCoordinator : DetailPhotoPresenterOutput {
-    func sentLoadedData(loadedData: PhotosModel) {
-        for i in 0..<presenterArray.count {
-            guard presenterArray[i] is DetailPhotoPresenterInput else {continue}
-            presenterArray.remove(at: i)
-            
-            for i in 0..<presenterArray.count {
-                guard let presenter = presenterArray[i] as? FlickraPresenterInput else {continue}
-                presenter.updateData(updateData: loadedData)
-            }
-        }
+        presentController(type: FlickraViewController.self)
     }
 }
 
 extension ModulesCoordinator : RoutingDetailPhotoView {
     func presentDetailPhotoView() {
-        let detailPhotoView = DetailPhotoAssembly()
-        guard let detailPhoto = detailPhotoView.build() else { return}
-        detailPhoto.presenter.output = self
-        presenterArray.append(detailPhoto.presenter)
-        rootNavigationVC.pushViewController(detailPhoto.controller, animated: true)
-    }
-    
-    func dismissDetailPhotoView() {
-    }
-}
-
-
-extension ModulesCoordinator : FavoritesPresenterOutput {
-    
-    func comeBackPrepare(){
-        for i in 0..<presenterArray.count {
-            guard presenterArray[i] is FavoritesPresenterInput else {continue}
-            presenterArray.remove(at: i)
-        }
+        presentController(type: DetailPhotoViewController.self)
     }
 }
 
 extension ModulesCoordinator : RoutingFavoritesView {
     func presentFavoritesView() {
-        let favoritesView = FavoritesAssembly()
-        guard let favorites = favoritesView.build(database: database) else { return}
-        favorites.presenter.output = self
-        presenterArray.append(favorites.presenter)
-         print(rootNavigationVC.viewControllers)
-         rootNavigationVC.pushViewController(favorites.controller, animated: true)
-    }
-    
-    func dismissFavoritesView() {
+        presentController(type: FavoritesViewController.self)
     }
 }

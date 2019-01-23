@@ -11,7 +11,7 @@ import Foundation
 
 class FavoritesPresenter {
     
-    private weak var presenterOutput : FavoritesPresenterOutput!
+    private weak var presenterOutput : FavoritesPresenterDelegate!
     private weak var view : FavoritesViewDelegate!
     private var interactor: FavoritesInteractorInput!
     
@@ -22,7 +22,7 @@ class FavoritesPresenter {
 
 
 extension FavoritesPresenter : FavoritesPresenterInput {
-    var output: FavoritesPresenterOutput {
+    var output: FavoritesPresenterDelegate {
         get {
             return presenterOutput
         }

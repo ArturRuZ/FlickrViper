@@ -30,6 +30,7 @@ extension DetailPhotoInteractor : DetailPhotoInteractorInput{
     }
     
     func getPhotoData() {
+        print ("получить данные")
         guard let photoData = self.photoData else {return}
         interactorOutput?.presentPhotoData(photoData: photoData)
     }
@@ -38,6 +39,8 @@ extension DetailPhotoInteractor : DetailPhotoInteractorInput{
 
 extension DetailPhotoInteractor {
     func prepareFototoShow(selectedPhoto: PhotosModel) {
+        print ("сохранить данные")
         self.photoData = selectedPhoto
+      
     }
 }

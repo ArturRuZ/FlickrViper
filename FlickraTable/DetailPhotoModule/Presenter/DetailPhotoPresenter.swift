@@ -11,7 +11,7 @@ import UIKit
 
 class DetailPhotoPresenter {
     
-    private weak var presenterOutput : DetailPhotoPresenterOutput!
+    private weak var presenterOutput : DetailPhotoPresenterDelegate!
     private weak var view : DetailPhotoViewDelegate!
     private var interactor: DetailPhotoInteractorInput!
     
@@ -24,7 +24,7 @@ class DetailPhotoPresenter {
 extension DetailPhotoPresenter : DetailPhotoPresenterInput {
     
     
-    var output: DetailPhotoPresenterOutput {
+    var output: DetailPhotoPresenterDelegate {
         get {
             return presenterOutput
         }

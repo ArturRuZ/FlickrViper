@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol FavoritesPresenterInput: class {
-    var output:  FavoritesPresenterOutput { get set }
+    var output:  FavoritesPresenterDelegate { get set }
     var viewInput:  FavoritesViewDelegate { get set }
     var interactorInput:  FavoritesInteractorInput { get set }
     func backButtonPressed()
@@ -18,6 +18,6 @@ protocol FavoritesPresenterInput: class {
 }
 
 
-protocol  FavoritesPresenterOutput: class {
+protocol  FavoritesPresenterDelegate: class {
     func comeBackPrepare()
 }

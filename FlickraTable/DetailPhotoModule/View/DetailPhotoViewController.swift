@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 
 
-class DetailPhotoView: UIViewController {
+class DetailPhotoViewController: UIViewController {
     
     @IBOutlet weak var favoritesIcon: UIButton!
     @IBOutlet weak var detailPhotoTitle: UILabel!
@@ -24,6 +24,7 @@ class DetailPhotoView: UIViewController {
         super.viewDidLoad()
         output.viewDidLoad()
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -41,7 +42,7 @@ class DetailPhotoView: UIViewController {
 }
 
 
-extension DetailPhotoView : DetailPhotoViewDelegate {
+extension DetailPhotoViewController : DetailPhotoViewDelegate {
     var output: DetailPhotoViewOutput {
         get {
             return viewOutput
@@ -64,7 +65,7 @@ extension DetailPhotoView : DetailPhotoViewDelegate {
 }
 
 
-extension DetailPhotoView {
+extension DetailPhotoViewController {
     func updatefavoriteImage(){
         let favoriteImage = UIImage(named: "baseline_favorite_black_36pt.png")
         let unfavoriteImage = UIImage(named: "baseline_favorite_border_black_36pt")

@@ -11,24 +11,24 @@ import UIKit
 
 class FlickraPresenter {
     
-    private weak var presenterOutput : FlickraPresenterOutput!
-    private weak var view : FlickraViewtViewDelegate!
+    private weak var presenterDelegate : FlickraPresenterDelegate!
+    private weak var view : FlickraViewInput!
     private var interactor: FlickraInteractorInput!
     
 }
 
 extension FlickraPresenter : FlickraPresenterInput {
     
-    var output: FlickraPresenterOutput {
+    var output: FlickraPresenterDelegate {
         get {
-            return presenterOutput
+            return presenterDelegate
         }
         set {
-            presenterOutput = newValue
+            presenterDelegate = newValue
         }
     }
     
-    var viewInput: FlickraViewtViewDelegate {
+    var viewInput: FlickraViewInput {
         get {
             return view
         }
@@ -61,7 +61,7 @@ extension FlickraPresenter: FlickraViewOutput {
         interactorInput.getData()
     }
     func  rowSelected(selectedPhoto: PhotosModel) {
-        presenterOutput?.photoSelected(selectedPhoto: selectedPhoto)
+        presenterDelegate?.photoSelected(selectedPhoto: selectedPhoto)
     }
 }
 
@@ -72,7 +72,7 @@ extension FlickraPresenter{
         interactor.updateData(updateData: updateData)
     }
     func favoritesButtonPressed(){
-        presenterOutput.showFavorites()
+        presenterDelegate.showFavorites()
     }
 }
 

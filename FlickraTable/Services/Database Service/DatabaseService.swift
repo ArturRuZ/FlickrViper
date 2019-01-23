@@ -4,7 +4,8 @@
 //
 //  Created by Артур on 10/01/2019.
 //  Copyright © 2019 Артур. All rights reserved.
-//
+
+// метод MAP для работы с массивами 
 
 import Foundation
 import RealmSwift
