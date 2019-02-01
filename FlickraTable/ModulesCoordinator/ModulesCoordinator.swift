@@ -35,10 +35,17 @@ class ModulesCoordinator {
         return presenter
     }
     
-    private func presentController<T>(type: T.Type){
-        guard let controllerPackage = controllerPackageBuilder.createPackage(type: type) else {return}
-        presenterArray.append(controllerPackage.presenter)
-        rootNavigationVC.pushViewController(controllerPackage.controller, animated: true)
+    private func presentController<T>(type: T.Type, selectedPhoto:PhotosModel? = nil){
+        var controllerPackage:ControllerPackageProtocol?
+        if type is DetailPhotoViewController.Type {
+           controllerPackage = controllerPackageBuilder.createPackage(parametrs: BuildingParametrs.withParametrs(type: type, selectedPhoto: selectedPhoto!))
+        } else
+        {
+        controllerPackage = controllerPackageBuilder.createPackage(parametrs: BuildingParametrs.wihoutParametrs(type: type))
+        }
+        guard controllerPackage != nil else {return}
+        presenterArray.append(controllerPackage!.presenter)
+        rootNavigationVC.pushViewController(controllerPackage!.controller, animated: true)
     }
 }
 
@@ -46,9 +53,7 @@ class ModulesCoordinator {
 
 extension ModulesCoordinator : FlickraPresenterDelegate {
     func photoSelected(selectedPhoto: PhotosModel) {
-        presentDetailPhotoView()
-        guard let presenter =  findPresenter(DetailPhotoPresenterInput.self) else {return}
-        presenter.prepareFotoToShow(selectedPhoto: selectedPhoto)
+       presentController(type: DetailPhotoViewController.self, selectedPhoto: selectedPhoto )
     }
     func showFavorites(){
         presentFavoritesView()
@@ -79,7 +84,6 @@ extension ModulesCoordinator : RoutingFlickraView {
 
 extension ModulesCoordinator : RoutingDetailPhotoView {
     func presentDetailPhotoView() {
-        presentController(type: DetailPhotoViewController.self)
     }
 }
 

@@ -18,7 +18,9 @@ class DetailPhotoPresenter {
     deinit{
         print("deinit DetailPhotoPresenter")}
     
-}
+    
+    }
+
 
 
 extension DetailPhotoPresenter : DetailPhotoPresenterInput {
@@ -74,5 +76,6 @@ extension DetailPhotoPresenter : DetailPhotoViewOutput {
     }
     func backButtonPressed(loadedData: PhotosModel) {
         presenterOutput.sentLoadedData(loadedData: loadedData)
+       
     }
 }

@@ -21,7 +21,8 @@ class DetailPhotoViewController: UIViewController {
     
     private var photoData: PhotosModel?
     private var viewOutput : DetailPhotoViewOutput!
-    private var favorite = MutableProperty(false)
+    private var favorite: MutableProperty? = MutableProperty(false)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print ("didload")
@@ -31,15 +32,19 @@ class DetailPhotoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        
         if photoData != nil{
+            photoData!.isFavorite = self.favorite!.value
             viewOutput.backButtonPressed(loadedData: photoData!)}
+        print ("!!!")
+        print ( favorite!.lifetime.hasEnded)
+        favorite = nil
+
     }
     
     @IBAction func favoritesButton(_ sender: UIButton) {
-        photoData!.isFavorite = !photoData!.isFavorite
-        self.favorite.value = self.photoData!.isFavorite
+        self.favorite!.value = !self.favorite!.value
     }
-   
     
     deinit{
         print("deinit DetailPhotoView")}
@@ -59,7 +64,7 @@ extension DetailPhotoViewController : DetailPhotoViewDelegate {
     func presentPhoto(photoData: PhotosModel) {
         self.photoData = photoData
         
-        favorite.signal.observeValues{
+        favorite!.signal.observeValues{
             switch $0{
             case true:
                 print("reactive \($0)")
@@ -70,7 +75,7 @@ extension DetailPhotoViewController : DetailPhotoViewDelegate {
             }
         }
         detailPhotoTitle.text = photoData.title
-        self.favorite.value = photoData.isFavorite
+        self.favorite!.value = photoData.isFavorite
         detailPhotoImageView.kf.indicatorType = .activity
         let url = URL(string : photoData.url)
         let cacheKey = photoData.id

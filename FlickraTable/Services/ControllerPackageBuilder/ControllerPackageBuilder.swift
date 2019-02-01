@@ -10,6 +10,8 @@
 import Foundation
 import UIKit
 
+
+
 class ControllerPackageBuilder: ControllerPackageBuilderProtocol {
     
     private let internetService: InternetServiceInput = InternetService()
@@ -20,7 +22,26 @@ class ControllerPackageBuilder: ControllerPackageBuilderProtocol {
         self.modulesCoordinator = modulesCoordinator
     }
     
-    func createPackage<T>(type: T.Type )->(ControllerPackageProtocol?){
+   
+    
+    func createPackage<T>(parametrs:BuildingParametrs<T>)->(ControllerPackageProtocol?){
+       switch parametrs{
+       case .wihoutParametrs(let type):
+        return buildPackage(type: type)
+       case .withParametrs(let type, let selectedPhoto):
+        let detailPhotoVC = buildPackage(type: type)
+        guard let detailPhotoPresenter = detailPhotoVC?.presenter as! DetailPhotoPresenterInput? else {return detailPhotoVC}
+        guard let photo = selectedPhoto as PhotosModel? else {return detailPhotoVC}
+        detailPhotoPresenter.prepareFotoToShow(selectedPhoto: photo)
+        return detailPhotoVC
+       default:
+        return nil
+        }
+    }
+    
+    
+    func buildPackage<T>(type: T.Type )->(ControllerPackageProtocol?){
+        
         switch type {
         case is FlickraViewController.Type:
             return createFlickraController()

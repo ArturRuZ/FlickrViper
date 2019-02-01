@@ -9,5 +9,7 @@
 import Foundation
 
 protocol ControllerPackageBuilderProtocol: class {
-func createPackage<T>(type: T.Type )->(ControllerPackageProtocol?)
+func buildPackage<T>(type: T.Type )->(ControllerPackageProtocol?)
+func createPackage<T>(parametrs:BuildingParametrs<T>) ->(ControllerPackageProtocol?)
+
 }
