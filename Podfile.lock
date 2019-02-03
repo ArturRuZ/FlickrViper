@@ -1,16 +1,38 @@
 PODS:
   - Kingfisher (5.0.1)
+  - ReactiveCocoa (8.0.2):
+    - ReactiveSwift (~> 4.0)
+  - ReactiveSwift (4.0.0):
+    - Result (~> 4.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - Result (4.1.0)
 
 DEPENDENCIES:
   - Kingfisher (= 5.0.1)
+  - ReactiveCocoa (= 8.0.2)
+  - RealmSwift (= 3.13.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kingfisher
+    - ReactiveCocoa
+    - ReactiveSwift
+    - Realm
+    - RealmSwift
+    - Result
 
 SPEC CHECKSUMS:
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
+  ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
+  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
 
-PODFILE CHECKSUM: 3baa2151b5bd9a9af79d1f491f5ee8107d6790b8
+PODFILE CHECKSUM: 66663ebadefb0ba18eb2c110478a7c437c88445d
 
 COCOAPODS: 1.5.3

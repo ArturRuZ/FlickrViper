@@ -21,7 +21,7 @@ class Application {
 // MARK: - Initialization
 
 extension Application {
-    func startApp() -> UIViewController {
+    func rootViewController() -> UIViewController {
         return modulesCoordinator.rootModuleController()
     }
 }
